@@ -9,7 +9,7 @@ $btnQue.forEach(element => {
         document.getElementById('q' + PAGE_NAME).classList.add('active')
         history.pushState(null, PAGE_NAME, `?page=${PAGE_NAME}`);
         // 문제 이동 시 에러 메시지 초기화
-        document.getElementById('result_desc').textContent='';
+        document.getElementById('result_desc').textContent = '';
         render();
         loadCode();
     });
@@ -21,8 +21,9 @@ function loadCode() {
     if (!!localStorageValue) {
         editor.setValue(localStorageValue);
     } else {
-        editor.setValue(`def solution(data):
-    return None`);
+        editor.setValue(`function solution(data){
+    return undefined
+}`);
     }
 }
 loadCode()

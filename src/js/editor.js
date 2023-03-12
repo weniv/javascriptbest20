@@ -3,7 +3,7 @@
 let editor = CodeMirror.fromTextArea(
   document.getElementById("codeeditor"),
   {
-    mode: "python",
+    mode: "javascript",
     // indentWithTabs: true, // tab으로 인식하게 할 것인지 => false
     smartIndent: true,
     lineNumbers: true,

@@ -225,7 +225,6 @@
                     </div>
 
                     <py-script>
-                        import ast
                         #from testCaseAndResult import test
                         from testcase import testcase_and_result
 
@@ -245,10 +244,30 @@
                             answer = testcase_and_result[int(PAGE_NAME)]['result']
                             testCase = testcase_and_result[int(PAGE_NAME)]['testcase']
 
-                            code += f'\n[solution(i) for i in {str(testCase)}]'
+                            # code += f'\n[solution(i) for i in {str(testCase)}]'
                             try:
-                                result = multiline_eval(code)
-                                result = ast.literal_eval(result)
+                                # result = multiline_eval(code)
+                                result = ['undefined', 'undefined', 'undefined']
+
+                                if isinstance(testCase[0], list):
+                                    code0 = code + f"\nsolution({str(testCase[0])})"
+                                    console.log(code0)
+                                    result[0] = js.eval(code0)
+                                    code1 = code + f"\nsolution({str(testCase[1])})"
+                                    result[1] = js.eval(code1)
+                                    console.log(code1)
+                                    code2 = code + f"\nsolution({str(testCase[2])})"
+                                    result[2] = js.eval(code2)
+                                else:
+                                    code0 = code + f"\nsolution('{testCase[0]}')"
+                                    console.log(code0)
+                                    result[0] = js.eval(code0)
+                                    code1 = code + f"\nsolution('{testCase[1]}')"
+                                    result[1] = js.eval(code1)
+                                    console.log(code1)
+                                    code2 = code + f"\nsolution('{testCase[2]}')"
+                                    result[2] = js.eval(code2)
+
                                 resultString = "&lt;p class='que-result'&gt;테스트 케이스 번호 : 통과 여부 (실행값 == 정답값) &lt;&#47;p&gt;"
                                 passing = "&lt;span class='result-pass'&gt; 통과 &lt;&#47;span&gt;"
                                 fail = "&lt;span class='result-fail'&gt; 실패 &lt;&#47;span&gt;"
@@ -264,24 +283,12 @@
                                 result = f"&lt;p class='que-result-error'&gt;에러입니다. 문제를 다시 풀어주세요.&lt;&#47;p&gt; &lt;p class='que-result-errorname'&gt;에러명 : {e}&lt;&#47;p&gt;"
                                 js.document.querySelector('#result_desc').innerHTML = result
 
-
-                        def multiline_eval(expr, ctx={}):
-                            results = []
-                            for node in ast.parse(expr).body:
-                                if isinstance(node, ast.Expr):
-                                    result = eval(compile(ast.Expression(node.value), 'string', 'eval'), ctx)
-                                    results.append(result)            
-                                else:
-                                    module = ast.Module([node], type_ignores=[])
-                                    results.append(exec(compile(module, 'string', 'exec'), ctx))
-                            return '\n'.join(map(str, results))[5:]
-
                         button_run = Element("btn-run")
                         button_run.element.onclick = result
 
                         for i in range(1, 31):
                             button_render = Element(f'q{i}')
-                            button_render.element.onclick = render
+                            # button_render.element.onclick = render
                         </py-script>
                 </section>
             </main>
