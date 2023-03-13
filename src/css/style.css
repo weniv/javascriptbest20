@@ -169,9 +169,6 @@ header .btn-fold {
 .btn-exec {
     padding: 0.5em 1em;
     background: var(--ColorMain);
-    color: var(--ColorDeep);
-    font-weight: bold;
-    border-radius: 3px;
 }
 
 @media (max-width: 446px) {
@@ -648,11 +645,9 @@ nav ol li a:not(.active):hover {
 
 .editor .btn-contain #btn-run {
     background: var(--ColorMain);
+    color: var(--ColorWhite);
     height: 4.4rem;
     width: 100%;
-    color: var(--ColorDeep);
-    font-weight: bold;
-    border-radius: 3px;
 }
 
 .editor #result {
@@ -732,7 +727,7 @@ nav ol li a:not(.active):hover {
 }
 
 #kg-carousel #kg-nav #nav-auto div {
-  border: 1.5px solid var(--ColorLight);
+  border: 1.5px solid var(--ColorDeep);
   padding: 1px;
   border-radius: 50%;
   height: 3px;
@@ -751,7 +746,7 @@ nav ol li a:not(.active):hover {
 #kg-carousel #radio4:checked~#kg-nav #nav-auto .auto-btn4,
 #kg-carousel #radio5:checked~#kg-nav #nav-auto .auto-btn5,
 #kg-carousel #kg-nav #nav-maunal .manual-btn:hover {
-    background-color: var(--ColorLight);
+    background-color: var(--ColorDeep);
 }
 
 #kg-carousel #kg-nav #nav-maunal {
@@ -770,7 +765,7 @@ nav ol li a:not(.active):hover {
 }
 
 #kg-carousel #kg-nav #nav-maunal > .manual-btn {
-  border: 1.5px solid var(--ColorLight);;
+  border: 1.5px solid var(--ColorDeep);;
   padding: 1px;
   border-radius: 50%;
   cursor: pointer;
@@ -784,6 +779,10 @@ nav ol li a:not(.active):hover {
     width: 6%;
     max-width: 40px;
     z-index: 999;
+}
+
+#kg-carousel #kg-next {
+    transform: rotate(180deg);
 }
 
 @media (max-width: 768px) {
