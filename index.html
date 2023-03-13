@@ -251,20 +251,17 @@
 
                                 if isinstance(testCase[0], list):
                                     code0 = code + f"\nsolution({str(testCase[0])})"
-                                    console.log(code0)
                                     result[0] = js.eval(code0)
+                                    console.log('answer>',result[0])
                                     code1 = code + f"\nsolution({str(testCase[1])})"
                                     result[1] = js.eval(code1)
-                                    console.log(code1)
                                     code2 = code + f"\nsolution({str(testCase[2])})"
                                     result[2] = js.eval(code2)
                                 else:
                                     code0 = code + f"\nsolution('{testCase[0]}')"
-                                    console.log(code0)
                                     result[0] = js.eval(code0)
                                     code1 = code + f"\nsolution('{testCase[1]}')"
                                     result[1] = js.eval(code1)
-                                    console.log(code1)
                                     code2 = code + f"\nsolution('{testCase[2]}')"
                                     result[2] = js.eval(code2)
 
@@ -282,6 +279,8 @@
                             except Exception as e:
                                 result = f"&lt;p class='que-result-error'&gt;에러입니다. 문제를 다시 풀어주세요.&lt;&#47;p&gt; &lt;p class='que-result-errorname'&gt;에러명 : {e}&lt;&#47;p&gt;"
                                 js.document.querySelector('#result_desc').innerHTML = result
+
+                        
 
                         button_run = Element("btn-run")
                         button_run.element.onclick = result
