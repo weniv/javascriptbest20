@@ -12,20 +12,21 @@ body {
 
 header {
   padding: 0 2rem;
-  display:flex;
+  display: flex;
   align-items: center;
 }
 
 .btn-exec {
-  height:fit-content;
+  height: fit-content;
   margin: auto 0;
 }
 
 @media (max-width:390px) {
 
   header img {
-    width:80%;
+    width: 80%;
   }
+
   .btn-exec {
     margin: auto 20px;
   }
@@ -36,16 +37,17 @@ header {
     align-items: center;
   }
 
-  main,py-terminal{
-    width:65%;
+  main,
+  py-terminal {
+    width: 65%;
   }
 
   header {
     padding: 0 17%;
   }
-  
+
   footer {
-    width:100vw;
+    width: 100vw;
   }
 }
 
@@ -55,11 +57,12 @@ main {
 }
 
 main .info {
-  background:rgba(0, 0, 0, 0.2);
-  width:fit-content;
+  background: rgba(0, 0, 0, 0.2);
+  width: fit-content;
   padding: 0.4rem 1rem;
-  border-radius:10px;
+  border-radius: 10px;
 }
+
 footer {
   order: 3;
 }
@@ -160,12 +163,4 @@ py-repl:last-child .py-repl-output::after {
 .py-terminal {
   background: rgba(0, 0, 0, 0.3);
   padding: 2rem;
-}
-
-.alert-banner.py-warning {
-  position: absolute;
-  top:0;
-  left:50%;
-  transform: translateX(-50%);
-  z-index: 1000;
 }
