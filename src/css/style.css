@@ -731,12 +731,12 @@ nav ol li a:not(.active):hover {
 }
 
 #kg-carousel #kg-nav #nav-auto div {
-    border: 1.5px solid var(--ColorLight);
-    padding: 1px;
-    border-radius: 50%;
-    height: 3px;
-    width: 3px;
-    transition: all .1s ease-in-out;
+  border: 1.5px solid var(--ColorDeep);
+  padding: 1px;
+  border-radius: 50%;
+  height: 3px;
+  width: 3px;
+  transition: all .1s ease-in-out;
 }
 
 #kg-carousel #kg-nav #nav-auto div:not(:last-child),
@@ -750,7 +750,7 @@ nav ol li a:not(.active):hover {
 #kg-carousel #radio4:checked~#kg-nav #nav-auto .auto-btn4,
 #kg-carousel #radio5:checked~#kg-nav #nav-auto .auto-btn5,
 #kg-carousel #kg-nav #nav-maunal .manual-btn:hover {
-    background-color: var(--ColorLight);
+    background-color: var(--ColorDeep);
 }
 
 #kg-carousel #kg-nav #nav-maunal {
@@ -769,15 +769,14 @@ nav ol li a:not(.active):hover {
     }
 }
 
-#kg-carousel #kg-nav #nav-maunal>.manual-btn {
-    border: 1.5px solid var(--ColorLight);
-    ;
-    padding: 1px;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 3px;
-    height: 3px;
-    transition: all .1s ease-in-out;
+#kg-carousel #kg-nav #nav-maunal > .manual-btn {
+  border: 1.5px solid var(--ColorDeep);;
+  padding: 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 3px;
+  height: 3px;
+  transition: all .1s ease-in-out;
 }
 
 #kg-carousel #kg-before,
@@ -785,6 +784,10 @@ nav ol li a:not(.active):hover {
     width: 6%;
     max-width: 40px;
     z-index: 999;
+}
+
+#kg-carousel #kg-next {
+    transform: rotate(180deg);
 }
 
 @media (max-width: 768px) {
