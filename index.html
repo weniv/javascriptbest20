@@ -252,7 +252,6 @@
                                 if isinstance(testCase[0], list):
                                     code0 = code + f"\nsolution({str(testCase[0])})"
                                     result[0] = js.eval(code0)
-                                    console.log('answer>',result[0])
                                     code1 = code + f"\nsolution({str(testCase[1])})"
                                     result[1] = js.eval(code1)
                                     code2 = code + f"\nsolution({str(testCase[2])})"
