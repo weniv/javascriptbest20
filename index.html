@@ -244,11 +244,9 @@
                             answer = testcase_and_result[int(PAGE_NAME)]['result']
                             testCase = testcase_and_result[int(PAGE_NAME)]['testcase']
 
-                            # code += f'\n[solution(i) for i in {str(testCase)}]'
                             try:
-                                # result = multiline_eval(code)
                                 result = ['undefined', 'undefined', 'undefined']
-
+                                
                                 if isinstance(testCase[0], list):
                                     code0 = code + f"\nsolution({str(testCase[0])})"
                                     result[0] = js.eval(code0)
@@ -268,6 +266,11 @@
                                 passing = "&lt;span class='result-pass'&gt; 통과 &lt;&#47;span&gt;"
                                 fail = "&lt;span class='result-fail'&gt; 실패 &lt;&#47;span&gt;"
                                 result_save_localstorage = []
+
+                                if ',' in str(result[0]):
+                                    for i in range(3):
+                                        result[i] = list(result[i])
+                                
                                 for i in range(3):
                                     resultString += f"&lt;p class='que-result-{i} checkPass'&gt;test{i+1} : {passing if result[i] == answer[i] else fail}&lt;span class='result-compare'&gt;({result[i]} == {answer[i]})&lt;&#47;span&gt;&lt;&#47;p&gt;"
                                     result_save_localstorage.append(result[i] == answer[i])
