@@ -174,11 +174,26 @@ header .btn-fold {
     border-radius: 3px;
 }
 
+.btn-download {
+    padding: 0.5em 1em;
+    background: var(--ColorMain);
+    font-weight: bold;
+    border-radius: 3px;
+    color: var(--ColorDeep);
+    margin-right: 10px;
+    display: inline-block;
+    line-height: 1.4;
+}
+
 @media (max-width: 446px) {
     .btn-exec {
         font-size: 1rem;
         padding: 1em 1em;
         white-space: nowrap
+    }
+
+    .btn-download {
+        display: none;
     }
 }
 
@@ -745,12 +760,12 @@ nav ol li a:not(.active):hover {
 }
 
 #kg-carousel #kg-nav #nav-auto div {
-  border: 1.5px solid var(--ColorDeep);
-  padding: 1px;
-  border-radius: 50%;
-  height: 3px;
-  width: 3px;
-  transition: all .1s ease-in-out;
+    border: 1.5px solid var(--ColorDeep);
+    padding: 1px;
+    border-radius: 50%;
+    height: 3px;
+    width: 3px;
+    transition: all .1s ease-in-out;
 }
 
 #kg-carousel #kg-nav #nav-auto div:not(:last-child),
@@ -783,14 +798,15 @@ nav ol li a:not(.active):hover {
     }
 }
 
-#kg-carousel #kg-nav #nav-maunal > .manual-btn {
-  border: 1.5px solid var(--ColorDeep);;
-  padding: 1px;
-  border-radius: 50%;
-  cursor: pointer;
-  width: 3px;
-  height: 3px;
-  transition: all .1s ease-in-out;
+#kg-carousel #kg-nav #nav-maunal>.manual-btn {
+    border: 1.5px solid var(--ColorDeep);
+    ;
+    padding: 1px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 3px;
+    height: 3px;
+    transition: all .1s ease-in-out;
 }
 
 #kg-carousel #kg-before,
