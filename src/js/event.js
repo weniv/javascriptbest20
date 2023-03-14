@@ -27,8 +27,9 @@ function loadCode() {
         editor.setValue(localStorageValue);
         $resultInfo.classList.remove("result-info-none");
     } else {
-        editor.setValue(`def solution(data):
-    return None`);
+        editor.setValue(`function solution(data){
+    return undefined
+}`);
         $resultInfo.classList.remove("result-info-none");
     }
 }
