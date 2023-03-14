@@ -9,7 +9,7 @@ if (typeof (history.pushState) != "undefined") {
 
 document.getElementById('q' + PAGE_NAME).classList.add('active')
 
-for (let i = 1; i <= 30; i++) {
+for (let i = 1; i <= 20; i++) {
     if (!!window.localStorage.getItem(`${i}_check`)) {
         document.getElementById('q' + i).classList.add('success')
     }

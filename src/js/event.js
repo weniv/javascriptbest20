@@ -1,5 +1,7 @@
 const $btnQue = document.querySelectorAll('.btn-que');
 const $btnRun = document.querySelector("#btn-run");
+const OLD_CONSOLE_LOG = console.log;
+let debug = true;
 
 // 문제 로딩
 $btnQue.forEach(element => {
@@ -33,5 +35,15 @@ $btnRun.addEventListener("click", (e) => {
     let text = editor.getValue();
     codeEditor = document.querySelector('#codeeditor');
     window.localStorage.setItem(PAGE_NAME, text);
-    codeEditor.textContent = text
+    codeEditor.textContent = text;
+    console.log(`DEBUG: ${debug}`)
+    debug = false;
+    console.log = function(){}
 });
+
+$btnRun.addEventListener('mouseleave', () => {
+    debug = true;
+    console.log = OLD_CONSOLE_LOG
+})
+
+
