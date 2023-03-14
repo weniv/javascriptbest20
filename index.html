@@ -227,6 +227,7 @@
 
                     <py-script>
                         #from testCaseAndResult import test
+                        import pyodide
                         from testcase import testcase_and_result
 
                         PAGE_NAME = js.document.querySelector('.active').id[1:]
@@ -268,10 +269,11 @@
                                 fail = "&lt;span class='result-fail'&gt; 실패 &lt;&#47;span&gt;"
                                 result_save_localstorage = []
 
-                                if ',' in str(result[0]):
-                                    for i in range(3):
-                                        result[i] = list(result[i])
-                                
+                                for i in range(3):
+                                    if isinstance(result[i], pyodide.JsProxy):
+                                        # JS 객체, 배열, 함수, 프로미스인 경우
+                                        result[i]=list(result[i])
+
                                 for i in range(3):
                                     resultString += f"&lt;p class='que-result-{i} checkPass'&gt;test{i+1} : {passing if result[i] == answer[i] else fail}&lt;span class='result-compare'&gt;({result[i]} == {answer[i]})&lt;&#47;span&gt;&lt;&#47;p&gt;"
                                     result_save_localstorage.append(result[i] == answer[i])
