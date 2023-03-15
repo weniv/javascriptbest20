@@ -458,6 +458,65 @@ nav ol li a:not(.active):hover {
     margin: 0.4rem 0 1.2rem;
 }
 
+
+.editor .cont-chat {
+    position:fixed;
+    right: 3rem;
+    bottom:3rem;
+    z-index:1000;
+    background-color: var(--ColorWhite);
+    height: auto;
+    border-radius:30px;
+    padding:2rem;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+  }
+  
+  .editor .cont-chat .btn-open {
+    display:flex;
+    position:fixed;
+    right: 2rem;
+    bottom: 2rem;
+    border-radius: 50px;
+    background-color: var(--ColorMain);
+    align-items: center;
+    padding:1.6rem;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+  }
+  
+  .editor .cont-chat .chatroom {
+    display:none;
+  }
+  .editor .cont-chat .chatroom.open {
+    display:flex;
+    flex-direction: column;
+    margin-right:4rem;
+    width:auto;
+    height:300px;
+  }
+  
+  .chatroom .chat-list {
+    height:100%;
+  
+  }
+  .editor .cont-chat .inp-chat {
+    display:flex;
+    justify-content: space-around;
+  }
+  .cont-chat .inp-chat input {
+    width:80%;
+  }
+  
+  @media (min-width:2000px) {
+    .editor .cont-chat,
+    .editor .cont-chat .btn-open {
+        right : Calc(17.5% - 4rem);
+    }
+    .editor .cont-chat .chatroom {
+        right : Calc(17.5% - 6rem);
+    }
+    
+  }
+
 .description {
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
