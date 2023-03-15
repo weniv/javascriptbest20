@@ -440,7 +440,7 @@ nav ol li a:not(.active):hover {
     margin: 0.4rem 0 1.2rem;
 }
 
-.editor .btn-chat {
+.editor .cont-chat .btn-open {
     display:flex;
     position:fixed;
     right: 2rem;
@@ -453,6 +453,12 @@ nav ol li a:not(.active):hover {
     box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
 }
 
+@media (min-width:2000px) {
+    .editor .cont-chat .btn-open {
+        right : Calc(17.5% - 2rem);
+    }
+    
+}
 
 .description {
     line-height: 1.6;
