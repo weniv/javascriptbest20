@@ -38,13 +38,13 @@ hr {
 }
 
 code:not(pre code) {
-    color: var(--ColorWhite);
-    background-color: rgba(0, 0, 0, 0.25);
-    font-size: 0.95em;
-    padding: 0.1em 0.3em;
-    margin: 0 0.1em;
-    border-radius: 3px;
-}
+	color: var(--ColorWhite);
+	background-color: rgba(0, 0, 0, 0.25);
+	font-size: 0.95em;
+	padding: 0.1em 0.3em;
+	margin: 0 0.1em;
+	border-radius: 3px;
+} 
 
 /* 접근성을 고려한 화면감춤 */
 .sr-only {
@@ -169,7 +169,6 @@ header .btn-fold {
 .btn-exec {
     padding: 0.5em 1em;
     background: var(--ColorMain);
-    color: var(--ColorDeep);
     font-weight: bold;
     border-radius: 3px;
 }
@@ -178,7 +177,7 @@ header .btn-fold {
     .btn-exec {
         font-size: 1rem;
         padding: 1em 1em;
-        white-space: nowrap
+        white-space:nowrap
     }
 }
 
@@ -187,7 +186,7 @@ header .btn-fold {
         position: absolute;
         padding: 1em 1em;
         right: 0;
-        white-space: nowrap
+        white-space:nowrap
     }
 }
 
@@ -261,7 +260,6 @@ nav ol li a:not(.active):hover {
     .editor {
         width: 100% !important;
     }
-
     nav {
         box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     }
@@ -292,7 +290,7 @@ nav ol li a:not(.active):hover {
         width: 845px;
     }
 
-
+    
 }
 
 .container .contents {
@@ -300,9 +298,9 @@ nav ol li a:not(.active):hover {
     width: 100%;
 }
 
-@media (min-width:1200px) and (max-width:2000px) {
+@media (min-width:1200px) and (max-width:2000px){
     .menu-on.container .contents main section.description {
-        min-height: Calc(100vh - 60px);
+        min-height:Calc(100vh - 60px);
     }
 }
 
@@ -334,7 +332,7 @@ nav ol li a:not(.active):hover {
     }
 
     .menu-on.container .contents main section.description {
-        min-height: 100%;
+        min-height:100%;
     }
 
 
@@ -374,74 +372,87 @@ nav ol li a:not(.active):hover {
 }
 
 .editor .timer-container {
-    position: relative;
-    width: fit-content;
+    position:relative;
+    width:fit-content;
     padding: 0.4rem 0.8rem 0.4rem 0.4rem;
     margin: 0 0.2rem 0 auto;
-    display: flex;
+    display:flex;
     align-items: center;
-    gap: 0.6rem;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.2);
-
+    gap:0.6rem;
+    border-radius:10px;
+    background-color: rgba(0,0,0,0.2);
+    
 }
 
 .editor .timer-container .timer-time {
-    padding: 0.4rem 2rem;
+    padding:0.4rem 2rem;
     margin: 0.2rem;
-    border-radius: 5px;
-    display: flex;
-    gap: 0.4rem;
+    border-radius:5px;
+    display:flex;
+    gap:0.4rem;
 }
 
 .editor .timer-container .timer-time span {
-    display: inline-block;
-    width: 20px;
+    display:inline-block;
+    width:20px;
 
 }
 
 .editor .timer-container button {
-    display: flex;
+    display:flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 0.6rem 0.6rem;
-    border-radius: 3px;
+    background-color:rgba(255,255,255,0.2);
+    padding:0.6rem 0.6rem;
+    border-radius:3px;
     transition: 0.1s ease-in-out;
 
 }
 
 .editor .timer-container button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color:rgba(255,255,255,0.4);
 
 }
 
 .editor .timer-container .btn-container {
     position: relative;
-    width: fit-content;
-
+    width:fit-content;
+    
 }
 
 .editor .timer-container .btn-play {
-    position: relative;
-    top: 0;
-    left: 0;
+    position:relative;
+    top:0;
+    left:0;
 }
-
 .editor .timer-container .btn-pause {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position:absolute;
+    top:0;
+    left:0;
     visibility: hidden;
-
+    
 }
 
 .editor .timer-container img {
-    width: 60%;
+    width:60%;
 }
 
 .editor .timer-line {
     margin: 0.4rem 0 1.2rem;
 }
+
+.editor .btn-chat {
+    display:flex;
+    position:fixed;
+    right: 2rem;
+    bottom: 2rem;
+    z-index:1000;
+    border-radius: 50px;
+    background-color: var(--ColorMainDark);
+    align-items: center;
+    padding:1.6rem;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.3);
+}
+
 
 .description {
     line-height: 1.6;
@@ -475,7 +486,6 @@ nav ol li a:not(.active):hover {
 .description p {
     margin: 2rem 0 1.4rem;
 }
-
 .description a {
     text-decoration: underline;
     color: var(--ColorMainLight);
@@ -537,9 +547,8 @@ nav ol li a:not(.active):hover {
 
 .description ol.que-list {
     list-style-type: decimal;
-    padding-left: 1.4rem;
+    padding-left:1.4rem;
 }
-
 .description .que-list:not(:first-child) .que-ol-li {
     position: relative;
     padding-left: 0;
@@ -652,7 +661,7 @@ nav ol li a:not(.active):hover {
 
 .editor .btn-contain #btn-run {
     background: var(--ColorMain);
-    color: var(--ColorDeep);
+    color: var(--ColorWhite);
     font-weight: bold;
     border-radius: 3px;
     height: 4.4rem;
@@ -745,7 +754,7 @@ nav ol li a:not(.active):hover {
 }
 
 #kg-carousel #kg-nav #nav-auto div {
-  border: 1.5px solid var(--ColorDeep);
+  border: 1.5px solid var(--ColorLight);
   padding: 1px;
   border-radius: 50%;
   height: 3px;
@@ -764,7 +773,7 @@ nav ol li a:not(.active):hover {
 #kg-carousel #radio4:checked~#kg-nav #nav-auto .auto-btn4,
 #kg-carousel #radio5:checked~#kg-nav #nav-auto .auto-btn5,
 #kg-carousel #kg-nav #nav-maunal .manual-btn:hover {
-    background-color: var(--ColorDeep);
+    background-color: var(--ColorLight);
 }
 
 #kg-carousel #kg-nav #nav-maunal {
@@ -776,7 +785,6 @@ nav ol li a:not(.active):hover {
 
 /* 모바일 기기에서 페이지네이션 도트 삭제 */
 @media (max-width: 768px) {
-
     #kg-carousel #kg-before,
     #kg-carousel #kg-next {
         height: 100%;
@@ -784,7 +792,7 @@ nav ol li a:not(.active):hover {
 }
 
 #kg-carousel #kg-nav #nav-maunal > .manual-btn {
-  border: 1.5px solid var(--ColorDeep);;
+  border: 1.5px solid var(--ColorLight);;
   padding: 1px;
   border-radius: 50%;
   cursor: pointer;
@@ -798,10 +806,6 @@ nav ol li a:not(.active):hover {
     width: 6%;
     max-width: 40px;
     z-index: 999;
-}
-
-#kg-carousel #kg-next {
-    transform: rotate(180deg);
 }
 
 @media (max-width: 768px) {
@@ -831,13 +835,13 @@ nav ol li a:not(.active):hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 550px) {
+@media (max-width: 550px){
     #kg-carousel #kg-nav #nav-auto div {
         width: 1px;
         height: 1px;
     }
 
-    #kg-carousel #kg-nav #nav-maunal>.manual-btn {
+    #kg-carousel #kg-nav #nav-maunal > .manual-btn {
         width: 1px;
         height: 1px;
     }
@@ -849,7 +853,7 @@ nav ol li a:not(.active):hover {
         height: 2px;
     }
 
-    #kg-carousel #kg-nav #nav-maunal>.manual-btn {
+    #kg-carousel #kg-nav #nav-maunal > .manual-btn {
         width: 2px;
         height: 2px;
     }
@@ -949,11 +953,10 @@ footer p {
     content: " ✔️";
 }
 
-
 .alert-banner.py-warning {
     position: fixed;
-    top: 0;
-    left: 50%;
+    top:0;
+    left:50%;
     transform: translateX(-50%);
     z-index: 1000;
 }
