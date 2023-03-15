@@ -56,7 +56,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/javascript/javascript.min.js"></script>
-    <!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/javascript/javascript.min.js"></script> -->
 
     <!-- pyscript -->
     <link rel="stylesheet" href="src/pyscript/pyscript.css">
@@ -291,8 +290,6 @@
                             except Exception as e:
                                 result = f"&lt;p class='que-result-error'&gt;에러입니다. 문제를 다시 풀어주세요.&lt;&#47;p&gt; &lt;p class='que-result-errorname'&gt;에러명 : {e}&lt;&#47;p&gt;"
                                 js.document.querySelector('#result_desc').innerHTML = result
-
-                        
 
                         button_run = Element("btn-run")
                         button_run.element.onclick = result
