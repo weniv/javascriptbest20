@@ -9,7 +9,7 @@ testcase_and_result = [{
     'result': ['jeju', 'cat', 'lion'],
 }, {
     'que_number': 2,
-    'testcase': ['adr10bb1d9ia10e33b7u88k3j1a3v11v9', 'r1rr2rrr3rrrrr4rrrrrre5', '12345r12345e90v90r90'],
+    'testcase': [['adr10bb1d9ia10e33b7u88k3j1a3v11v9'], ['r1rr2rrr3rrrrr4rrrrrre5'], ['12345r12345e90v90r90']],
     'result': ['2월 3일', '1월 5일', '2월 8일'],
 }, {
     'que_number': 3,
@@ -52,7 +52,7 @@ testcase_and_result = [{
     ],
 }, {
     'que_number': 8,
-    'testcase': [100, 36000, 66600],
+    'testcase': [[100], [36000], [66600]],
     'result': [0, 12, 24]
 }, {
     'que_number': 9,
