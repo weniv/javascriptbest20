@@ -51,6 +51,7 @@
     <script src="./src/js/nav.js" defer></script>
     <script src="./src/js/ad.js" defer></script>
     <script src="./src/js/timer.js" defer></script>
+    <script src="./src/js/chat.js" defer></script>
 
     <!-- codemirror -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.js"></script>
@@ -164,10 +165,17 @@
 
                     
                     <article class="cont-chat">
+                        <h4 class="sr-only">인공지능에게 질문하기</h4>
                         <button class="btn-open">
-                            <p class="sr-only">인공지능에게 질문하기</p>
                             <img src="./src/img/fi-rr-comment-alt.png" alt="">
                         </button>
+                        <div class="chatroom">
+                            <ul class="chat-list"></ul>
+                            <form class="inp-chat">
+                                <input type="text">
+                                <button>전송</button>
+                            </form>
+                        </div>
                     </article>
 
 
