@@ -2,10 +2,10 @@ const $btnQue = document.querySelectorAll('.btn-que');
 const $btnRun = document.querySelector("#btn-run");
 const $resultInfo = document.querySelector("#result_info");
 const $btnDownload = document.querySelector(".btn-download");
+const $languageSelector = document.querySelector(".lang-selector");
 const OLD_CONSOLE_LOG = console.log;
 let debug = true;
-
-
+let lang = 'javascript';
 
 // 문제 로딩
 $btnQue.forEach(element => {
@@ -96,3 +96,19 @@ $btnDownload.addEventListener("click", (e) => {
     }
 });
 
+$languageSelector.addEventListener('change', () => {
+    lang = 'python';
+
+    if (lang === 'python'){
+        window.location = 'https://pyalgo.co.kr/';
+    } else {
+        return;
+    }
+
+})
+
+window.onload = function(){
+    const options = $languageSelector.querySelectorAll('option');
+    lang = 'javascript';
+    options[0].selected = true;
+}
