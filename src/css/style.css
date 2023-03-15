@@ -166,7 +166,7 @@ header .btn-fold {
     }
 }
 
-.btn-exec {
+.cta-btn {
     padding: 0.5em 1em;
     background: var(--ColorMain);
     color: var(--ColorDeep);
@@ -175,14 +175,16 @@ header .btn-fold {
 }
 
 .btn-download {
-    padding: 0.5em 1em;
-    background: var(--ColorMain);
-    font-weight: bold;
-    border-radius: 3px;
-    color: var(--ColorDeep);
     margin-right: 10px;
     display: inline-block;
     line-height: 1.4;
+}
+
+.lang-selector {
+    background-color: var(--ColorWhite);
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
 }
 
 @media (max-width: 446px) {
