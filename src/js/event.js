@@ -5,8 +5,6 @@ const $btnDownload = document.querySelector(".btn-download");
 const OLD_CONSOLE_LOG = console.log;
 let debug = true;
 
-
-
 // 문제 로딩
 $btnQue.forEach(element => {
     element.addEventListener('click', function (e) {
