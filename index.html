@@ -43,6 +43,7 @@
 
     <!-- 환경파일 -->
     <script src="./src/env.js" defer></script>
+    <!-- <script src="./src/setupProxy.js" defer></script> -->
 
     <!-- JavaScript -->
     <script src="./src/js/editor.js" defer></script>
@@ -86,7 +87,7 @@
                     </a>
                 </h1>
                 <button class="btn-download">Solution Download</button>
-                <a class="btn-exec" href="https://jsbin.com/?html,js,output">Run JavaScript</a>
+                <a class="btn-exec" href="https://jsbin.com/?html,js,output" target="_blank">Run JavaScript</a>
                 <button class="btn-fold" type="button">접어두기</button>
             </div>
         </header>
@@ -167,7 +168,7 @@
                         <div id="result_desc"></div>
                     </div>
 
-                    <!-- 인공지능에게 질문하기 -->
+                    <!-- chat -->
                     <article class="cont-chat">
                         <h4 class="sr-only">인공지능에게 질문하기</h4>
                         <button class="btn-open">
@@ -175,9 +176,9 @@
                         </button>
                         <div class="chatroom">
                             <ul class="chat-list"></ul>
-                            <form class="inp-chat">
+                            <form class="inp-chat" method="post">
                                 <input type="text">
-                                <button class="send-chat">전송</button>
+                                <button type="submit">전송</button>
                             </form>
                         </div>
                     </article>
