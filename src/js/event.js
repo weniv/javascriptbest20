@@ -99,17 +99,17 @@ $btnDownload.addEventListener("click", (e) => {
                 totalData += localStorageValue
             }
         }
-    }
-    if (!!totalData) {
-        const name = `solution_total`;
-        downloadFile({
-            data: totalData,
-            fileName: `${name}.md`,
-            fileType: 'text/json',
-        });
-    } else {
-        window.alert('다운로드 할 데이터가 없습니다.')
-    }
+        if (!!totalData) {
+            const name = `solution_total`;
+            downloadFile({
+                data: totalData,
+                fileName: `${name}.md`,
+                fileType: 'text/json',
+            });
+        } else {
+            window.alert('다운로드 할 데이터가 없습니다.')
+        }
+    })
 });
 
 $languageSelector.addEventListener('change', () => {
