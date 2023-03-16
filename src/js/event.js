@@ -1,7 +1,7 @@
 const $btnQue = document.querySelectorAll('.btn-que');
 const $btnRun = document.querySelector("#btn-run");
 const $resultInfo = document.querySelector("#result_info");
-const $btnDownload = document.querySelector(".btn-download");
+const $btnsDownload = document.querySelectorAll(".btn-download");
 const $languageSelector = document.querySelector(".lang-selector");
 const OLD_CONSOLE_LOG = console.log;
 let debug = true;
@@ -81,36 +81,38 @@ const fetchQuestionInfo = async () => {
     }
 }
 
-$btnDownload.addEventListener("click", (e) => {
-    let totalData = ''
-    const res = fetchQuestionInfo()
-    res.then((response) => {
-        const questionInfo = JSON.parse(response.split('=')[1].slice(1))
-        for (let i = 1; i < 21; i++) {
-            let localStorageValue = window.localStorage.getItem(i);
-            let passCheck = window.localStorage.getItem(`${i}_check`);
-            if (!!localStorageValue) {
-                localStorageValue = '```javascript\n' + localStorageValue + '\n```'
-                if (!!passCheck) {
-                    localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]['lv']}\n* 문제 종류 : ${questionInfo[i]['kinds']}\n* 문제 링크 : https://jsalgo.co.kr/?page=${i}\n* 통과 여부 : Y\n\n${localStorageValue}\n\n`
-                } else {
-                    localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]['lv']}\n* 문제 종류 : ${questionInfo[i]['kinds']}\n* 문제 링크 : https://jsalgo.co.kr/?page=${i}\n* 통과 여부 : N\n\n${localStorageValue}\n\n`
+$btnsDownload.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        let totalData = ''
+        const res = fetchQuestionInfo()
+        res.then((response) => {
+            const questionInfo = JSON.parse(response.split('=')[1].slice(1))
+            for (let i = 1; i < 21; i++) {
+                let localStorageValue = window.localStorage.getItem(i);
+                let passCheck = window.localStorage.getItem(`${i}_check`);
+                if (!!localStorageValue) {
+                    localStorageValue = '```javascript\n' + localStorageValue + '\n```'
+                    if (!!passCheck) {
+                        localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]['lv']}\n* 문제 종류 : ${questionInfo[i]['kinds']}\n* 문제 링크 : https://jsalgo.co.kr/?page=${i}\n* 통과 여부 : Y\n\n${localStorageValue}\n\n`
+                    } else {
+                        localStorageValue = `# 문제 ${i}번\n\n* 문제 레벨 : ${questionInfo[i]['lv']}\n* 문제 종류 : ${questionInfo[i]['kinds']}\n* 문제 링크 : https://jsalgo.co.kr/?page=${i}\n* 통과 여부 : N\n\n${localStorageValue}\n\n`
+                    }
+                    totalData += localStorageValue
                 }
-                totalData += localStorageValue
             }
-        }
-        if (!!totalData) {
-            const name = `solution_total`;
-            downloadFile({
-                data: totalData,
-                fileName: `${name}.md`,
-                fileType: 'text/json',
-            });
-        } else {
-            window.alert('다운로드 할 데이터가 없습니다.')
-        }
+            if (!!totalData) {
+                const name = `solution_total`;
+                downloadFile({
+                    data: totalData,
+                    fileName: `${name}.md`,
+                    fileType: 'text/json',
+                });
+            } else {
+                window.alert('다운로드 할 데이터가 없습니다.')
+            }
+        })
     })
-});
+})
 
 $languageSelector.addEventListener('change', () => {
     lang = 'python';
@@ -128,3 +130,5 @@ window.onload = function(){
     lang = 'javascript';
     options[0].selected = true;
 }
+
+console.log('버튼다운로드이시다ㅏㅏㅏ', $btnDownload)
