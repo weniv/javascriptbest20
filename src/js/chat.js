@@ -1,21 +1,37 @@
-// 채팅 기능
 const $chatRoom = document.querySelector('.chatroom');
 const $chatBtn = document.querySelector('.cont-chat .btn-open');
 const $chatInput = document.querySelector(".inp-chat input");
 const $sendForm = document.querySelector(".inp-chat");
 
-// 버튼 누르면 채팅창 활성화시키는 함수
-$chatBtn.addEventListener('click',()=>{
-  $chatRoom.classList.toggle('open')
-})
-
+// 유저의 질문을 담은 변수
 let question;
+
+// 질문과 답변을 저장하는 객체
 let data = [
   {
     role: "system",
     content: "You are a helpful assistant.",
   },
 ];
+
+// JSON ESCAPE 인코딩 함수
+const encode = (text) => {
+  let str = "";
+  for (let i = 0; i < text.length; i++) {
+    if (String(text.charCodeAt(i)).length >= 3) {
+      str += String(`\\u` + text.charCodeAt(i).toString(16));
+    } else {
+      str += String(text[i]);
+    }
+  }
+  console.log(str);
+  return str;
+};
+
+// 버튼 누르면 채팅창 활성화시키는 함수
+$chatBtn.addEventListener('click',()=>{
+  $chatRoom.classList.toggle('open')
+})
 
 // 유저 질문 받아오는 함수
 // JSON ESCAPE 적용해야함
@@ -30,7 +46,7 @@ $chatInput.addEventListener("change", (e) => {
 const sendQuestion = (question) => {
   data.push({
     role: "user",
-    content: question,
+    content: encode(question),
   });
 };
 
@@ -40,6 +56,8 @@ $sendForm.addEventListener("click", (e) => {
   if (question && data[data.length - 1].content !== question) {
     sendQuestion(question);
   }
+
+  console.log(data)
   // apiTest(config);
 });
 
