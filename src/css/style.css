@@ -239,8 +239,14 @@ header .menu-nav {
 
 .hamburger-btn {
     display: none;
+    /* margin: 0 auto; */
     width: 40px;
     height: 40px;
+    transform: rotate(360deg);
+}
+
+.hamburger-btn img {
+    margin: 0 auto;
 }
 
 @media (max-width: 820px) {
@@ -283,6 +289,16 @@ header .menu-nav {
     }
     .menu-item {
         font-size: 1rem;
+    }
+
+    .hamburger-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .hamburger-btn img.close {
+        width: 15px;
+        height: 15px;
     }
 }
 
