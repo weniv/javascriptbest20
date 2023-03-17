@@ -1,13 +1,13 @@
 const $chatRoom = document.querySelector(".chatroom");
 const $chatBtn = document.querySelector(".cont-chat .btn-open");
+const $chatList = document.querySelector(".chat-list");
 const $chatInput = document.querySelector(".inp-chat input");
 const $sendForm = document.querySelector(".inp-chat");
 
-// 유저의 질문을 담은 변수
+// 유저의 질문
 let question;
 
-// 질문과 답변을 저장하는 객체
-// data 내부에서 이스케이프 문자열 인식안됨 \u이 아닌 \\u로 인식되는 문제가 발생함
+// 질문을 저장하는 객체
 let data = [
   {
     role: "system",
@@ -15,20 +15,8 @@ let data = [
   },
 ];
 
-// JSON ESCAPE 인코딩 함수
-const encode = (text) => {
-  let str = "";
-  for (let i = 0; i < text?.length; i++) {
-    if (String(text.charCodeAt(i)).length > 3) {
-      str += String("\\u"  + text.charCodeAt(i).toString(16));
-    } else {
-      str += String(text[i]);
-    }
-  }
-  console.log("str");
-  console.log(str);
-  return str;
-};
+// 화면에 뿌려줄 데이터
+let questionData = [];
 
 // 버튼 누르면 채팅창 활성화시키는 함수
 $chatBtn.addEventListener("click", () => {
@@ -43,48 +31,67 @@ $chatInput.addEventListener("change", (e) => {
   }
 });
 
-// 유저의 질문을 담은 객체를 data arr에 push
+// 유저 질문 객체를 만들고 push
 const sendQuestion = (question) => {
   data.push({
-      role: "user",
-      content: encode(question),  
-    });
-
-  // console.log("encode(question)");
-  console.log(encode(question));
-  console.log(data);
-  // console.log(typeof data);
+    role: "user",
+    content: question,  
+  });
+  questionData.push({
+    role: "user",
+    content: question,
+  });
 };
 
-$sendForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // 이전 질문과 동일한 질문일 경우 data arr에 push 하지않음
-  if (data[data.length - 1].content !== encode(question)) {
-    sendQuestion(question);
-    let config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: "http://3.37.150.96/chat",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // data: JSON.stringify(data),
-      data: data,
-    };
-    apiTest(config);
-  }
-});
+// 화면에 질문 그려주는 함수
+const printQuestion = async() => {
+    let li = document.createElement("li");
+    li.classList.add("question");
+    questionData.map((el) => {
+        li.innerText = el.content;
+    })
+    $chatList.appendChild(li);
+    questionData = [];
+}
+
+// 화면에 답변 그려주는 함수
+const printAnswer = async (answer) => {
+  let li = document.createElement("li");
+  li.classList.add("question");
+  li.innerText = answer;
+  $chatList.appendChild(li);
+};
 
 // API 통신 관련 함수
-const apiTest = async(config) => {
-  let result = await axios(config)
-    .then(function (response) {
-      console.log(111111111111);
-      const result = response.data.choices[0].message.content;
-      console.log(JSON.stringify(result));
-    })
-    .catch(function (err) {
-      console.log(2222222222222);
-      console.log(err);
-    });
+const sendReq = async(config) => {
+    let result = await axios(config)
+        .then((res) => {
+            const answer = res.data.choices[0].message.content;
+            // console.log(answer);
+            printAnswer(answer);
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 };
+
+// submit
+$sendForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  $chatInput.value = null;
+  sendQuestion(question);
+  printQuestion();
+
+  // API 통신관련 config
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: "http://3.37.150.96/chat",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify(data),
+  };
+
+  sendReq(config);
+})
