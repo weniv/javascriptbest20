@@ -166,46 +166,6 @@ header .btn-fold {
     }
 }
 
-.btn-exec {
-    padding: 0.5em 1em;
-    background: var(--ColorMain);
-    color: var(--ColorDeep);
-    font-weight: bold;
-    border-radius: 3px;
-}
-
-.btn-download {
-    padding: 0.5em 1em;
-    background: var(--ColorMain);
-    font-weight: bold;
-    border-radius: 3px;
-    color: var(--ColorDeep);
-    margin-right: 10px;
-    display: inline-block;
-    line-height: 1.4;
-}
-
-@media (max-width: 446px) {
-    .btn-exec {
-        font-size: 1rem;
-        padding: 1em 1em;
-        white-space: nowrap
-    }
-
-    .btn-download {
-        display: none;
-    }
-}
-
-@media (max-width: 390px) {
-    .btn-exec {
-        position: absolute;
-        padding: 1em 1em;
-        right: 0;
-        white-space: nowrap
-    }
-}
-
 nav {
     flex: 0 0 28rem;
     background: var(--ColorDeep);
@@ -264,12 +224,117 @@ nav ol li a:not(.active):hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-.menu-on nav {
+.menu-on .question-nav {
     display: block;
 }
 
 .menu-on .btn-fold::after {
     transform: rotate(0deg);
+}
+
+header .menu-nav {
+    display: none;
+    overflow-y: hidden;
+}
+
+.hamburger-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 820px) {
+    .hamburger-btn {
+        display: inline-block;
+    }
+}
+
+.cta-btn {
+    padding: 0.5em 1em;
+    background: var(--ColorMain);
+    color: var(--ColorDeep);
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.btn-download {
+    margin-right: 10px;
+    display: inline-block;
+    line-height: 1.4;
+}
+
+@media (max-width: 820px) {
+    .cta-btn {
+        display: none;
+    }
+}
+
+.lang-selector {
+    background-color: var(--ColorWhite);
+    margin-right: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+@media (max-width: 446px) {
+    .btn-exec {
+        padding: 1em 1em;
+        white-space: nowrap;
+    }
+    .menu-item {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 390px) {
+    .btn-exec {
+        position: absolute;
+        padding: 1em 1em;
+        right: 0;
+        white-space: nowrap
+    }
+}
+
+header .menu-nav {
+    display: none;
+}
+
+header .menu-nav.is-active {
+    display: block;
+}
+
+.menu-list {
+    padding: 8px;
+}
+
+.menu-list .menu-item {
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.menu-list .menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.menu-list .menu-item:nth-child(2){
+    margin: 8px 0;
+}
+
+.menu-list .menu-item a,
+.menu-list .menu-item button {
+    display: inline-block;
+    width: 100%;
+    color: var(--ColorMain);
+    margin: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+}
+
+.menu-list .menu-item a {
+    box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -457,6 +522,65 @@ nav ol li a:not(.active):hover {
 .editor .timer-line {
     margin: 0.4rem 0 1.2rem;
 }
+
+
+.editor .cont-chat {
+    position:fixed;
+    right: 3rem;
+    bottom:3rem;
+    z-index:1000;
+    background-color: var(--ColorWhite);
+    height: auto;
+    border-radius:30px;
+    padding:2rem;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+  }
+  
+  .editor .cont-chat .btn-open {
+    display:flex;
+    position:fixed;
+    right: 2rem;
+    bottom: 2rem;
+    border-radius: 50px;
+    background-color: var(--ColorMain);
+    align-items: center;
+    padding:1.6rem;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+  }
+  
+  .editor .cont-chat .chatroom {
+    display:none;
+  }
+  .editor .cont-chat .chatroom.open {
+    display:flex;
+    flex-direction: column;
+    margin-right:4rem;
+    width:auto;
+    height:300px;
+  }
+  
+  .chatroom .chat-list {
+    height:100%;
+  
+  }
+  .editor .cont-chat .inp-chat {
+    display:flex;
+    justify-content: space-around;
+  }
+  .cont-chat .inp-chat input {
+    width:80%;
+  }
+  
+  @media (min-width:2000px) {
+    .editor .cont-chat,
+    .editor .cont-chat .btn-open {
+        right : Calc(17.5% - 4rem);
+    }
+    .editor .cont-chat .chatroom {
+        right : Calc(17.5% - 6rem);
+    }
+    
+  }
 
 .description {
     line-height: 1.6;
@@ -919,6 +1043,14 @@ footer p {
 
     .container .contents {
         display: block;
+    }
+}
+
+
+@media (min-width: 820px) {
+    .menu-nav,
+    .menu-list {
+        display: none;
     }
 }
 
