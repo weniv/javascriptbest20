@@ -56,7 +56,7 @@ const sendQuestion = (question) => {
   // console.log(typeof data);
 };
 
-$sendForm.addEventListener("click", (e) => {
+$sendForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // 이전 질문과 동일한 질문일 경우 data arr에 push 하지않음
   if (data[data.length - 1].content !== encode(question)) {
