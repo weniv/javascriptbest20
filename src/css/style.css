@@ -239,10 +239,8 @@ header .menu-nav {
 
 .hamburger-btn {
     display: none;
-    /* margin: 0 auto; */
     width: 40px;
     height: 40px;
-    transform: rotate(360deg);
 }
 
 .hamburger-btn img {
