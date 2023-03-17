@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import './reset.css';
 @import './style.css';
+@import "./variable.css";
 
 /* layout */
 body {
@@ -67,30 +68,16 @@ footer {
   order: 3;
 }
 
-py-terminal {
-  flex-grow: 1;
-  margin: 0 2rem 2rem;
-}
-
-/* design */
-.py-error {
-  background: none;
-  color: var(--ColorNegative);
-  border: none;
-}
-
-.py-repl-run-button {
-  cursor: pointer;
-  opacity: 0.5;
-  transition: all 0.3s;
-}
-
-.py-repl-run-button svg {
-  transform: scale(0.8);
-}
-
-.py-repl-run-button path {
-  fill: var(--ColorWhite);
+.edit button {
+  display:block;
+  margin:0.6rem 0;
+  margin-left:auto;
+  padding: 0.5em 1em;
+  background: var(--ColorWhite);
+  background: var(--ColorMain);
+  color: var(--ColorDeep);
+  font-weight: bold;
+  border-radius: 3px;
 }
 
 .info {
@@ -103,64 +90,4 @@ py-terminal {
 
 .cm-editor.cm-focused {
   border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.py-repl-editor {
-  border: none;
-}
-
-.py-repl-editor .cm-gutters {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--ColorWhite);
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.py-repl-editor .cm-activeLineGutter {
-  background: rgba(255, 255, 255, 0.4);
-  color: var(--ColorDark);
-}
-
-.py-repl-editor .cm-activeLine {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.py-repl-output {
-  margin: 1rem 0 4rem 0;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.py-repl-output:empty::after {
-  content: '> 터미널을 확인하세요';
-  color: rgba(255, 255, 255, 0.5);
-}
-
-py-repl:last-child .py-repl-output {
-  padding: 0;
-}
-
-py-repl:last-child .py-repl-output::after {
-  content: none;
-
-}
-
-.ͼb {
-  color: var(--codeBuiltinfunction);
-}
-
-.ͼd {
-  color: var(--codeText);
-}
-
-.ͼe {
-  color: var(--codeText);
-}
-
-.ͼg {
-  color: var(--codeText);
-}
-
-.py-terminal {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 2rem;
 }
