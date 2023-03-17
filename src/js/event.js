@@ -130,5 +130,3 @@ window.onload = function(){
     lang = 'javascript';
     options[0].selected = true;
 }
-
-console.log('버튼다운로드이시다ㅏㅏㅏ', $btnDownload)
