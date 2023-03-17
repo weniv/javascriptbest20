@@ -65,10 +65,11 @@ const checkMobile = () => {
     isMobile = false;
     $menuContainer.classList.remove('is-active');
   } else if (winWidth >= 820) {
+    isMobile = true;
     handleCloseMenu();
   } else {
-    handleCloseQuestions();
     isMobile = true;
+    handleCloseQuestions();
   }
 }
 
