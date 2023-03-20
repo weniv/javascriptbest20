@@ -58,6 +58,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/javascript/javascript.min.js"></script>
 
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <!-- pyscript -->
     <link rel="stylesheet" href="src/pyscript/pyscript.css">
     <script defer src="src/pyscript/pyscript.js"></script>
@@ -82,6 +85,7 @@
                         <img class="logo" src="./src/img/js-logo.webp" alt="자바스크립트 알고리즘 20문제">
                     </a>
                 </h1>
+
                 <nav class="menu-nav">
                     <ul class="menu-list">
                         <li class="menu-item">
@@ -187,21 +191,20 @@
                         <div id="result_desc"></div>
                     </div>
 
-                    
+                    <!-- chat -->
                     <article class="cont-chat">
                         <h4 class="sr-only">인공지능에게 질문하기</h4>
                         <button class="btn-open">
-                            <img src="./src/img/fi-rr-comment-alt.png" alt="">
+                            <img src="./src/img/fi-rr-comment-alt.png" alt="인공지능에게 질문하기 이미지">
                         </button>
                         <div class="chatroom">
                             <ul class="chat-list"></ul>
-                            <form class="inp-chat">
-                                <input type="text">
-                                <button>전송</button>
+                            <form class="inp-chat" method="post">
+                                <input type="text" required>
+                                <button type="submit">전송</button>
                             </form>
                         </div>
                     </article>
-
 
                     <div id="kg-carousel">
                         <!-- ad image -->
