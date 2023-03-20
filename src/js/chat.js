@@ -4,6 +4,9 @@ const $chatList = document.querySelector(".chat-list");
 const $chatInput = document.querySelector(".inp-chat input");
 const $sendForm = document.querySelector(".inp-chat");
 
+// openAI API
+let url = `https://openai-api.jejucodingcamp.workers.dev/`;
+
 // 유저의 질문
 let question;
 
@@ -86,7 +89,7 @@ $sendForm.addEventListener("submit", (e) => {
   let config = {
     method: "post",
     maxBodyLength: Infinity,
-    url: "http://3.37.150.96/chat",
+    url: url,
     headers: {
       "Content-Type": "application/json",
     },
