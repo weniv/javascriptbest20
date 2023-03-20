@@ -1,5 +1,6 @@
 const $chatContainer = document.querySelector(".cont-chat");
 const $chatRoom = document.querySelector(".chatroom");
+const $chatInfo = document.querySelector(".chat-info");
 const $chatBtn = document.querySelector(".btn-chatOpen");
 const $adCarousel = document.querySelector("#kg-carousel");
 const $chatCloseBtn = document.querySelector(".chat-close");
@@ -39,6 +40,7 @@ const scrollToBottom = () => {
 // 버튼 누르면 채팅창 활성화시키는 함수
 $chatBtn.addEventListener("click", () => {
   $chatRoom.classList.add('open');
+  $chatInfo.classList.add("close");
   $chatBtn.classList.add("close");
   $adCarousel.classList.add("close");
   $chatContainer.classList.add("open");
@@ -49,6 +51,7 @@ $chatBtn.addEventListener("click", () => {
 // 채팅 창 닫기 버튼 이벤트
 $chatCloseBtn.addEventListener('click',()=>{
   $chatRoom.classList.remove('open');
+  $chatInfo.classList.remove("close");
   $chatBtn.classList.remove("close");
   $adCarousel.classList.remove("close");
   $chatContainer.classList.remove("open");

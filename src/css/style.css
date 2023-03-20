@@ -552,6 +552,10 @@ header .menu-nav.is-active {
     z-index: 10000;
 }
 
+.editor .chat-info.close {
+    display: none;
+}
+
 .editor .btn-chatOpen {
     display: block;
     position: fixed;
@@ -630,6 +634,7 @@ header .menu-nav.is-active {
     background: #3b4e7ed7;
     color: var(--ColorWhite);
     width: auto;
+    max-width: none;
     padding: 0.4rem 1rem;
     border-radius: 5px;
 }
@@ -691,7 +696,7 @@ header .menu-nav.is-active {
 }
   
 @media (min-width:2000px) {
-    .editor .btn-chatOpen {
+    .editor .chat-info, .editor .btn-chatOpen {
         right : Calc(17.5% - 3rem);
     }
 
