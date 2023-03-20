@@ -29,14 +29,13 @@
 
     <title>Run JavaScript - JSalgo20</title>
 
-    <!-- pyscript -->
-    <link rel="stylesheet" href="src/pyscript/pyscript.css" />
-    <script defer src="src/pyscript/pyscript.js"></script>
+    <!-- JavaScript -->
+    <script src="./src/js/codeexec.js" defer></script>
 
-    <py-config>
-      packages = [ "matplotlib", "pandas", "numpy" ] [[fetch]] files =
-      ["./src/py/antigravity.py"]
-    </py-config>
+    <!-- Codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/javascript/javascript.min.js"></script>
 
     <!-- css -->
     <link rel="stylesheet" href="./src/css/codeexec.css" />
@@ -56,13 +55,24 @@
     </header>
     <main>
       <p class="info">
-        💡 Shift-ENTER 또는 오른쪽 플레이 버튼을 누르면 실행됩니다. matplotlib은
-        plt.show대신 display(fig)를 사용하세요.
+        💡 Shift-ENTER 또는 실행 버튼을 누르면 실행됩니다.
       </p>
-      <py-repl id="my-repl" auto-generate="true"></py-repl>
+      <section class="edit">
+        <form>
+          <div class="state-area">
+              <label for="editor" class="sr-only">코드에디터</label>
+              <textarea cols="120" rows="20" id="editor"></textarea>
+          </div>
+          <button type="button" id="btn-run">실행</button>
+      </form>
+      </section>
+      <section class="exec">
+        <pre id="result">결과가 이 곳에 표시됩니다.</pre>   
+      </section>
     </main>
     <footer>
       <p>Copyright 2023. <strong>WENIV</strong> All rights reserved.</p>
     </footer>
   </body>
 </html>
+
