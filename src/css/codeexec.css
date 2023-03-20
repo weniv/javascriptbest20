@@ -91,26 +91,47 @@ footer {
 main {
   padding: 2rem;
   margin: 60px 0 auto;
-  display:flex;
-  justify-content: center;
   height:100%;
-  gap:2rem;
-  flex-wrap: wrap;
-}
-main section {
-  border:1px solid red;
-  height:Calc(100vh - 16rem);
-  overflow: scroll;
-  flex-basis: 500px;
 }
 
 main .info {
   position:absolute;
-
 }
 
+main .edit {
+  padding-top:42px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .exec {
+  overflow: scroll;
+  height:Calc(50vh - 14rem);
+  background-color: rgba(0,0,0,0.2);
+  padding:2rem;
+
+}
 .exec #result .cmd-msg {
   display:block;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
+}
+.exec #result .cmd-msg::before {
+  content:'> ';
+  position: relative;
+  padding-right:1rem;
+  color:rgba(255, 255, 255, 0.3)
+}
+
+.exec #result .error-msg {
+  color:var(--ColorNegative);
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: Calc(50vh - 14rem);
+}
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 
