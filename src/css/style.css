@@ -383,6 +383,7 @@ header .menu-nav.is-active {
     .CodeMirror {
         max-width: min(845px, 100vw - 360px);
     }
+    
 
     .menu-off-CodeMirror {
         max-width: 563px;
@@ -543,6 +544,14 @@ header .menu-nav.is-active {
     margin: 0.4rem 0 1.2rem;
 }
 
+.editor .chat-info {
+    width: 70px;
+    position: fixed;
+    right: 2rem;
+    bottom: 12rem;
+    z-index: 10000;
+}
+
 .editor .btn-chatOpen {
     display: block;
     position: fixed;
@@ -575,6 +584,7 @@ header .menu-nav.is-active {
     border-radius: 15px;
     z-index:1000;
     box-shadow: 10px 10px 6px rgba(0,0,0,0.3);
+    padding-top: 40px;
   }
 
 .editor .cont-chat.close {
@@ -586,7 +596,6 @@ header .menu-nav.is-active {
 }
 
 .editor .cont-chat .chatroom {
-    width: inherit;
     display: flex;
     flex-direction: column;
     height: 500px;
@@ -598,7 +607,7 @@ header .menu-nav.is-active {
     display: flex;
     flex-direction: column;  
     justify-content: flex-end;
-    margin: 30px 10px 10px;
+    margin: 0 10px 10px;
 }
 
 .cont-chat .chatroom::-webkit-scrollbar {
@@ -607,11 +616,22 @@ header .menu-nav.is-active {
 
 .chatroom .chat-list li {
     width: 75%;
+    max-width: 619px;
     color: var(--ColorDark);
     padding: 10px 20px;
     border-radius: 5px;
     margin-bottom: 15px;
+    word-wrap: break-word;
 
+}
+
+.chatroom .chat-list li.info {
+    font-size: 90%;
+    background: #3b4e7ed7;
+    color: var(--ColorWhite);
+    width: auto;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
 }
 
 .chatroom .chat-list li.user {
@@ -641,10 +661,9 @@ header .menu-nav.is-active {
 .cont-chat .inp-chat textarea {
     resize: none;
     width: calc(100% - 40px);
-    margin: 0 10px 5px 10px;
-    border-radius: 5px;
     outline: none;
     border: none;
+    word-wrap: break-word;
 }
 
 .cont-chat .inp-chat button {
@@ -662,7 +681,7 @@ header .menu-nav.is-active {
     right: 5px;
     width: 30px;
     padding: 5px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--ColorMain);
     border-radius: 3px;
 }
 
