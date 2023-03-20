@@ -24,14 +24,13 @@ $btnRun.addEventListener('click',()=>{
   let code = editor.getValue()
   try{
     eval(code);
+    codePrint(code);
   } catch (e) {
-    console.log(e);
     let warnResult = document.createElement('span');
     warnResult.className = 'error-msg';
     warnResult.textContent= e;
     $result.appendChild(warnResult);
   }
-  codePrint(code);
 })
 
 
