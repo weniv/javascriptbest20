@@ -1125,3 +1125,6 @@ footer p {
     transform: translateX(-50%);
     z-index: 1000;
 }
+/* .alert-banner.py-error {
+    display:none;
+} */
