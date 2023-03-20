@@ -16,6 +16,12 @@
     font-style: bold;
 }
 
+/* class */
+.question {
+    color: black;
+    font-size: 12px;
+}
+
 html {
     font-size: 62.5%;
 }
