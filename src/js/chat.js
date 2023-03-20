@@ -7,18 +7,6 @@ const $chatList = document.querySelector(".chat-list");
 const $chatInput = document.querySelector(".inp-chat textarea");
 const $sendForm = document.querySelector(".inp-chat");
 
-// 스크롤 최하단 이동
-const scrollToBottom = () => {
-  // 너비가 1200px 이하이고 navBar가 열려있을 경우
-  if(window.innerWidth <= 1200 && $container.classList.contains('menu-on')) {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  }
-  // 너비가 1024px 이하일 경우
-  else if (window.innerWidth <= 1024) {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  }
-}
-
 // openAI API
 let url = `https://openai-api.jejucodingcamp.workers.dev/`;
 
@@ -35,6 +23,18 @@ let data = [
 
 // 화면에 뿌려줄 데이터
 let questionData = [];
+
+// 스크롤 최하단 이동
+const scrollToBottom = () => {
+  // 너비가 1200px 이하이고 navBar가 열려있을 경우
+  if(window.innerWidth <= 1200 && $container.classList.contains('menu-on')) {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  }
+  // 너비가 1024px 이하일 경우
+  else if (window.innerWidth <= 1024) {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  }
+}
 
 // 버튼 누르면 채팅창 활성화시키는 함수
 $chatBtn.addEventListener("click", () => {
@@ -62,7 +62,6 @@ $chatInput.addEventListener("change", (e) => {
     question = e.target.value;
   }
 });
-
 
 // 유저 질문 객체를 만들고 push
 const sendQuestion = (question) => {
