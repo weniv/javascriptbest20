@@ -73,3 +73,6 @@ window.addEventListener('keydown',(e)=>{
       codePrint(code);
   }
 })
+window.addEventListener('keyup',(e)=>{
+  keys[e.code]=false;
+})
