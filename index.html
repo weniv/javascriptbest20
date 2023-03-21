@@ -191,20 +191,30 @@
                         <div id="result_desc"></div>
                     </div>
 
+                    <img class="chat-info" src="./src/img/chat-ai.webp" alt="">
+                    <button class="btn-chatOpen">
+                        <img src="./src/img/fi-rr-comment-alt.webp" alt="인공지능과의 채팅 열기">
+                    </button>
+
                     <!-- chat -->
-                    <article class="cont-chat">
+                    <article class="cont-chat close">
                         <h4 class="sr-only">인공지능에게 질문하기</h4>
-                        <button class="btn-open">
-                            <img src="./src/img/fi-rr-comment-alt.png" alt="인공지능에게 질문하기 이미지">
-                        </button>
                         <div class="chatroom">
-                            <ul class="chat-list"></ul>
-                            <form class="inp-chat" method="post">
-                                <input type="text" required>
-                                <button type="submit">전송</button>
-                            </form>
+                            <ul class="chat-list">
+                                <li class="info"> 💡 복잡한 로직의 답변은 20초 이상의 시간이 걸릴 수 있습니다.</li>
+                            </ul>
                         </div>
+                        <form class="inp-chat" method="post">
+                            <div>
+                                <textarea oninput="auto_grow(this)"></textarea>
+                                <button type="submit">전송</button>
+                            </div>
+                        </form>
+                        <button class="chat-close">
+                            <img src="./src/img/close-wh.webp" alt="채팅방 닫기 ">
+                        </button>
                     </article>
+
 
                     <div id="kg-carousel">
                         <!-- ad image -->
