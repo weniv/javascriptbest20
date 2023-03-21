@@ -75,6 +75,14 @@ footer {
   border-radius: 3px;
 }
 
+.edit #btn-run {
+  padding: 0.8rem 1.3rem;
+  background: var(--ColorMain);
+  color: var(--ColorDeep);
+  font-weight: bold;
+  border-radius: 3px;
+}
+
 .info {
   margin-bottom: 2rem;
 }
