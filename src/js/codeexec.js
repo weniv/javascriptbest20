@@ -4,9 +4,6 @@ const $btnReset = document.getElementById('btn-reset');
 const $contScript = document.getElementById('cont-script');
 const $result = document.getElementById('result');
 
-// test용 실행 코드
-$editor.innerHTML = "for (let i = 0; i&lt; 10 ; i++){\n &nbsp; console.log(i);\n}";
-
 let editor = CodeMirror.fromTextArea(
   $editor,
   {
