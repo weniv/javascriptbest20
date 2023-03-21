@@ -68,25 +68,29 @@ $chatInput.addEventListener("input", (e) => {
 
 // 유저 질문 객체를 만들고 push
 const sendQuestion = (question) => {
-  data.push({
-    role: "user",
-    content: question,  
-  });
-  questionData.push({
-    role: "user",
-    content: question,
-  });
+  if(question) {
+    data.push({
+      role: "user",
+      content: question,
+    });
+    questionData.push({
+      role: "user",
+      content: question,
+    });
+  }
 };
 
 // 화면에 질문 그려주는 함수
 const printQuestion = async() => {
+  if(question) {
     let li = document.createElement("li");
     li.classList.add("user");
     questionData.map((el) => {
-        li.innerText = el.content;
-    })
+      li.innerText = el.content;
+    });
     $chatList.appendChild(li);
     questionData = [];
+  }
 }
 
 // 화면에 답변 그려주는 함수
