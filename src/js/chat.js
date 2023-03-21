@@ -148,9 +148,9 @@ $sendForm.addEventListener("submit", (e) => {
 })
 
 // Enter로 textarea 제출, shift + Enter로 줄바꿈
-$chatInput.addEventListener("keydown", (e) => {
-  if (e.keyCode === 13 && !e.shiftKey) {
-    e.preventDefault();
-    sendReq();
-  }
-});
+// $chatInput.addEventListener("keydown", (e) => {
+//   if (e.keyCode === 13 && !e.shiftKey) {
+//     e.preventDefault();
+//     sendReq();
+//   }
+// });
