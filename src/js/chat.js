@@ -59,7 +59,7 @@ $chatCloseBtn.addEventListener('click',()=>{
 });
 
 // 유저 질문 받아오는 함수
-$chatInput.addEventListener("change", (e) => {
+$chatInput.addEventListener("input", (e) => {
   e.preventDefault();
   if (question != e.target.value) {
     question = e.target.value;
@@ -104,7 +104,7 @@ const focusOnTextarea = () => {
 }
 
 // API 통신 관련 함수
-const sendReq = async(config) => {
+const apiPost = async(config) => {
     let result = await axios(config)
         .then((res) => {
             const answer = res.data.choices[0].message.content;
@@ -116,24 +116,37 @@ const sendReq = async(config) => {
         })
 };
 
+// req 보내주는 함수
+const sendReq = () => {
+    $chatInput.value = null;
+    sendQuestion(question);
+    printQuestion();
+    focusOnTextarea();
+
+    // API 통신관련 config
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: url,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify(data),
+    };
+
+    apiPost(config);
+}
+
 // submit
 $sendForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  $chatInput.value = null;
-  sendQuestion(question);
-  printQuestion();
-  focusOnTextarea();
-
-  // API 통신관련 config
-  let config = {
-    method: "post",
-    maxBodyLength: Infinity,
-    url: url,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: JSON.stringify(data),
-  };
-
-  sendReq(config);
+  sendReq();
 })
+
+// Enter로 textarea 제출, shift + Enter로 줄바꿈
+$chatInput.addEventListener("keydown", (e) => {
+  if (e.keyCode === 13 && !e.shiftKey) {
+    e.preventDefault();
+    sendReq();
+  }
+});
