@@ -12,7 +12,7 @@ const $sendForm = document.querySelector(".inp-chat");
 let url = `https://openai-api.jejucodingcamp.workers.dev/`;
 
 // 유저의 질문
-let question;
+let question = false;
 
 // 질문을 저장하는 객체
 let data = [
@@ -90,6 +90,7 @@ const printQuestion = async() => {
     });
     $chatList.appendChild(li);
     questionData = [];
+    question=false;
   }
 }
 
@@ -144,7 +145,10 @@ const sendReq = () => {
 // submit
 $sendForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  sendReq();
+  // 공백시 요청 막음
+  if (question) {
+    sendReq();
+  }
 })
 
 // Enter로 textarea 제출, shift + Enter로 줄바꿈
