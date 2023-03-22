@@ -288,6 +288,13 @@ header .menu-nav {
   background: #fff url(../img/select.svg) no-repeat calc(100% - 0.5em) 50% /
     0.8em;
 }
+.btn-exec {
+  padding: 0.8rem 1.3rem;
+  background: var(--ColorMain);
+  color: var(--ColorDeep);
+  font-weight: bold;
+  border-radius: 3px;
+}
 
 @media (max-width: 446px) {
   .btn-exec {
