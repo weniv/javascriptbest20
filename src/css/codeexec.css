@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @import './reset.css';
 @import './style.css';
-@import "./variable.css";
 
 /* layout */
 body {
@@ -52,6 +51,11 @@ header {
   }
 }
 
+main {
+  padding: 2rem;
+  margin: 60px 0 auto;
+}
+
 main .info {
   background: rgba(0, 0, 0, 0.2);
   width: fit-content;
@@ -63,16 +67,30 @@ footer {
   order: 3;
 }
 
-.edit button {
-  display:block;
-  margin:0.6rem 0;
-  margin-left:auto;
-  padding: 0.5em 1em;
-  background: var(--ColorWhite);
-  background: var(--ColorMain);
-  color: var(--ColorDeep);
-  font-weight: bold;
-  border-radius: 3px;
+py-terminal {
+  flex-grow: 1;
+  margin: 0 2rem 2rem;
+}
+
+/* design */
+.py-error {
+  background: none;
+  color: var(--ColorNegative);
+  border: none;
+}
+
+.py-repl-run-button {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.py-repl-run-button svg {
+  transform: scale(0.8);
+}
+
+.py-repl-run-button path {
+  fill: var(--ColorWhite);
 }
 
 .info {
@@ -87,51 +105,62 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.py-repl-editor {
+  border: none;
+}
 
-main {
+.py-repl-editor .cm-gutters {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--ColorWhite);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.py-repl-editor .cm-activeLineGutter {
+  background: rgba(255, 255, 255, 0.4);
+  color: var(--ColorDark);
+}
+
+.py-repl-editor .cm-activeLine {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.py-repl-output {
+  margin: 1rem 0 4rem 0;
   padding: 2rem;
-  margin: 60px 0 auto;
-  height:100%;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-main .info {
-  position:absolute;
+.py-repl-output:empty::after {
+  content: '> 터미널을 확인하세요';
+  color: rgba(255, 255, 255, 0.5);
 }
 
-main .edit {
-  padding-top:42px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-main .exec {
-  overflow: scroll;
-  height:Calc(50vh - 14rem);
-  background-color: rgba(0,0,0,0.2);
-  padding:2rem;
-
-}
-.exec #result .cmd-msg {
-  display:block;
-  padding: 0.5rem;
-}
-.exec #result .cmd-msg::before {
-  content:'> ';
-  position: relative;
-  padding-right:1rem;
-  color:rgba(255, 255, 255, 0.3)
+py-repl:last-child .py-repl-output {
+  padding: 0;
 }
 
-.exec #result .error-msg {
-  color:var(--ColorNegative);
+py-repl:last-child .py-repl-output::after {
+  content: none;
+
 }
 
-.CodeMirror {
-  border: 1px solid #eee;
-  height: Calc(50vh - 14rem);
-}
-.CodeMirror-scroll {
-  overflow-y: hidden;
-  overflow-x: auto;
+.ͼb {
+  color: var(--codeBuiltinfunction);
 }
 
+.ͼd {
+  color: var(--codeText);
+}
+
+.ͼe {
+  color: var(--codeText);
+}
+
+.ͼg {
+  color: var(--codeText);
+}
+
+.py-terminal {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+}
