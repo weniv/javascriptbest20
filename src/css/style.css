@@ -289,6 +289,18 @@ header .menu-nav {
     0.8em;
 }
 
+.btn-exec {
+  padding: 0.8rem 1.3rem;
+  background: var(--ColorMain);
+  color: var(--ColorDeep);
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.menu-nav.is-active .btn-exec {
+  background: none;
+}
+
 @media (max-width: 446px) {
   .btn-exec {
     padding: 1em 1em;
