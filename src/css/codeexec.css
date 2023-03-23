@@ -137,7 +137,6 @@ main .exec {
 .CodeMirror {
   border: 1px solid #eee;
   height: Calc(50vh - 14rem);
-  border:3px solid red;
 }
 .CodeMirror-scroll {
   overflow-y: hidden;
