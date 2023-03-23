@@ -58,6 +58,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/javascript/javascript.min.js"></script>
 
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
     <!-- pyscript -->
     <link rel="stylesheet" href="src/pyscript/pyscript.css">
     <script defer src="src/pyscript/pyscript.js"></script>
@@ -82,6 +85,7 @@
                         <img class="logo" src="./src/img/js-logo.webp" alt="자바스크립트 알고리즘 20문제">
                     </a>
                 </h1>
+
                 <nav class="menu-nav">
                     <ul class="menu-list">
                         <li class="menu-item">
@@ -91,7 +95,7 @@
                             <button class="btn-download">Solution Download</button>
                         </li>
                         <li class="menu-item">
-                            <a class="btn-exec" href="https://jsbin.com/?html,js,output" target="_blank">Run JavaScript</a>
+                            <a class="btn-exec" href="./codeexec.html" target="_blank">Run JavaScript</a>
                         </li>
                     </ul>
                 </nav>
@@ -105,7 +109,7 @@
                     <option name="python" value="python">Python</option>
                 </select>
                 <button class="cta-btn btn-download">Solution Download</button>
-                <a class="cta-btn btn-exec" href="https://jsbin.com/?html,js,output" target="_blank">Run JavaScript</a>
+                <a class="cta-btn btn-exec" href="./codeexec.html" target="_blank">Run JavaScript</a>
                 
                 <button class="btn-fold" type="button">접어두기</button>
             </div>
@@ -187,21 +191,30 @@
                         <div id="result_desc"></div>
                     </div>
 
-                    
-                    <article class="cont-chat">
-                        <h4 class="sr-only">인공지능에게 질문하기</h4>
-                        <button class="btn-open">
-                            <img src="./src/img/fi-rr-comment-alt.png" alt="">
-                        </button>
-                        <div class="chatroom">
-                            <ul class="chat-list"></ul>
-                            <form class="inp-chat">
-                                <input type="text">
-                                <button>전송</button>
-                            </form>
-                        </div>
-                    </article>
+                    <img class="chat-info" src="./src/img/chat-ai.webp" alt="">
+                    <button class="btn-chatOpen">
+                        <img src="./src/img/fi-rr-comment-alt.webp" alt="인공지능과의 채팅 열기">
+                    </button>
 
+                    <!-- chat -->
+                    <article class="cont-chat close">
+                        <h4 class="sr-only">인공지능에게 질문하기</h4>
+
+                        <p class="info"> 💡 복잡한 로직의 답변은 20초 이상의 시간이 걸릴 수 있습니다.</p>
+                        <div class="chatroom">
+                            <ul class="chat-list">                       
+                            </ul>
+                        </div>
+                        <form class="inp-chat" method="post">
+                            <div>
+                                <textarea></textarea>
+                                <button type="submit">전송</button>
+                            </div>
+                        </form>
+                        <button class="chat-close">
+                            <img src="./src/img/close-wh.webp" alt="채팅방 닫기 ">
+                        </button>
+                    </article>
 
                     <div id="kg-carousel">
                         <!-- ad image -->
