@@ -8,6 +8,20 @@ const $chatList = document.querySelector(".chat-list");
 const $chatInput = document.querySelector(".inp-chat textarea");
 const $sendForm = document.querySelector(".inp-chat");
 
+// btnQue 누르면 해당 문제 읽어오는 함수
+$btnQue.forEach((el) => {
+  el.addEventListener("click", async () => {
+    console.log(453646816848);
+    const result = await axios(`/src/pages/question${PAGE_NAME}.md`)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+});
+
 // openAI API
 let url = `https://openai-api.jejucodingcamp.workers.dev/`;
 
