@@ -58,6 +58,22 @@ $chatCloseBtn.addEventListener('click',()=>{
   $chatContainer.classList.add("close");
 });
 
+// 마크다운으로 변경해주는 함수
+function convertMarkdown(message) {
+  const markdownText = message;
+
+  const codeBlockRegex = /(```(\w+)[ \t]*\r?\n)([\s\S]*?)(\r?\n[ \t]*```)/g;
+  const wrappedCode = markdownText.replace(codeBlockRegex, (match, start, language, code, end) => {
+    const escapedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const langClass = `language-${language}`;
+    return `<pre style="background: #F5F2F0;"><code class="${langClass}" >${escapedCode.trim()}</code></pre>`;
+  });
+
+  Prism.highlightAll();
+
+  return wrappedCode;
+}
+
 // 유저 질문 받아오는 함수
 $chatInput.addEventListener("input", (e) => {
   e.preventDefault();
@@ -75,7 +91,7 @@ const sendQuestion = (question) => {
     });
     questionData.push({
       role: "user",
-      content: question,
+      content: convertMarkdown(question),
     });
   }
 };
@@ -86,11 +102,11 @@ const printQuestion = async() => {
     let li = document.createElement("li");
     li.classList.add("user");
     questionData.map((el) => {
-      li.innerText = el.content;
+      li.innerHTML = el.content;
     });
     $chatList.appendChild(li);
     questionData = [];
-    question=false;
+    question = false;
   }
 }
 
@@ -98,7 +114,7 @@ const printQuestion = async() => {
 const printAnswer = async (answer) => {
   let li = document.createElement("li");
   li.classList.add("chat-bot");
-  li.innerText = answer;
+  li.innerHTML = answer;
   $chatList.appendChild(li);
 };
 
@@ -114,7 +130,8 @@ const apiPost = async(config) => {
         .then((res) => {
             const answer = res.data.choices[0].message.content;
             // console.log(answer);
-            printAnswer(answer);
+            const markdownAnswer = convertMarkdown(answer);
+            printAnswer(markdownAnswer);
         })
         .catch((err) => {
             console.log(err)
