@@ -12,7 +12,7 @@ const $sendForm = document.querySelector(".inp-chat");
 let url = `https://openai-api.jejucodingcamp.workers.dev/`;
 
 // 유저의 질문
-let question;
+let question = false;
 
 // 질문을 저장하는 객체
 let data = [
@@ -38,24 +38,32 @@ const scrollToBottom = () => {
 }
 
 // 버튼 누르면 채팅창 활성화시키는 함수
-$chatBtn.addEventListener("click", () => {
+const handleOpenChat = () => {
   $chatRoom.classList.add('open');
   $chatInfo.classList.add("close");
   $chatBtn.classList.add("close");
   $adCarousel.classList.add("close");
   $chatContainer.classList.add("open");
   $chatContainer.classList.remove("close");
+}
+
+$chatBtn.addEventListener("click", () => {
+  handleOpenChat()
   scrollToBottom()
 });
 
 // 채팅 창 닫기 버튼 이벤트
-$chatCloseBtn.addEventListener('click',()=>{
+const handleCloseChat = () => {
   $chatRoom.classList.remove('open');
   $chatInfo.classList.remove("close");
   $chatBtn.classList.remove("close");
   $adCarousel.classList.remove("close");
   $chatContainer.classList.remove("open");
   $chatContainer.classList.add("close");
+}
+
+$chatCloseBtn.addEventListener('click',()=>{
+  handleCloseChat()
 });
 
 // 유저 질문 받아오는 함수
@@ -90,6 +98,7 @@ const printQuestion = async() => {
     });
     $chatList.appendChild(li);
     questionData = [];
+    question=false;
   }
 }
 
@@ -144,7 +153,10 @@ const sendReq = () => {
 // submit
 $sendForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  sendReq();
+  // 공백시 요청 막음
+  if (question) {
+    sendReq();
+  }
 })
 
 // Enter로 textarea 제출, shift + Enter로 줄바꿈
@@ -154,3 +166,12 @@ $sendForm.addEventListener("submit", (e) => {
 //     sendReq();
 //   }
 // });
+
+// 채팅창 외부 클릭했을 때 채팅창 닫기
+document.addEventListener('click', (e) => {
+  const $img = $chatBtn.childNodes[1]
+  const isBtn = e.target === $chatBtn || e.target === $img
+  if(!$chatContainer.contains(e.target) && !isBtn){
+    handleCloseChat()
+  }
+})
