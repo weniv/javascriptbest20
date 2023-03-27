@@ -7,6 +7,7 @@ const OLD_CONSOLE_LOG = console.log;
 let debug = true;
 let lang;
 
+
 // 문제 로딩
 $btnQue.forEach(element => {
     element.addEventListener('click', function (e) {
@@ -18,7 +19,7 @@ $btnQue.forEach(element => {
         document.getElementById('result_desc').textContent = '';
         render();
         loadCode();
-    });
+    })
 });
 
 // 로컬 스토리지에서 code 읽어오기
