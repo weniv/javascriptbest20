@@ -8,6 +8,9 @@ const $chatList = document.querySelector(".chat-list");
 const $chatInput = document.querySelector(".inp-chat textarea");
 const $sendForm = document.querySelector(".inp-chat");
 const $btnChatOpen = document.querySelector(".btn-chatOpen");
+const $question = document.querySelector(".user");
+const $answer = document.querySelector(".chat-bot");
+const $btnQue = document.querySelectorAll(".btn-que");
 
 // openAI API
 let url = `https://openai-api.jejucodingcamp.workers.dev/`;
@@ -29,6 +32,8 @@ let inAdvance = [];
     e.preventDefault();
     inAdvance = [];
     data = [];
+    questionData = [];
+    printQuestion();
     const result = await axios(`/src/pages/question${PAGE_NAME}.md`)
       .then((res) => {
         inAdvance.push(
@@ -128,6 +133,14 @@ const printQuestion = async() => {
     question=false;
   }
 }
+
+// 채팅 UI 삭제해주는 함수
+$btnQue.forEach((element) => {
+  element.addEventListener("click", () => {
+    $chatList.replaceChildren();
+  });
+});
+
 
 // 화면에 답변 그려주는 함수
 const printAnswer = async (answer) => {
