@@ -141,7 +141,6 @@ $btnQue.forEach((element) => {
   });
 });
 
-
 // 화면에 답변 그려주는 함수
 const printAnswer = async (answer) => {
   let li = document.createElement("li");
