@@ -3,9 +3,7 @@ const BASE_URL = '';
 
 if (typeof (history.pushState) != "undefined") {
     if (window.location.search != "") {
-        if (window.location.search.includes('page=')) {
-            PAGE_NAME = parseInt(window.location.search.split('=')[1].replace('#', ''))
-        }
+        PAGE_NAME = parseInt(window.location.search.split('=')[1].replace('#', ''))
     }
 }
 
