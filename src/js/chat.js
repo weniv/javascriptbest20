@@ -57,18 +57,6 @@ let inAdvance = [];
       });
 });
 
-// 스크롤 최하단 이동
-// const scrollToBottom = () => {
-//   // 너비가 1200px 이하이고 navBar가 열려있을 경우
-//   if(window.innerWidth <= 1200 && $container.classList.contains('menu-on')) {
-//     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-//   }
-//   // 너비가 1024px 이하일 경우
-//   else if (window.innerWidth <= 1024) {
-//     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-//   }
-// }
-
 // 버튼 누르면 채팅창 활성화시키는 함수
 const handleOpenChat = () => {
   $chatRoom.classList.add('open');
@@ -136,10 +124,13 @@ const sendQuestion = (question) => {
 const printQuestion = async() => {
   if(question) {
     let li = document.createElement("li");
+    let pre = document.createElement("pre")
     li.classList.add("user");
+    pre.classList.add("chat-pre")
     questionData.map((el) => {
-      li.innerHTML = el.content;
+      pre.innerHTML = el.content;
     });
+    li.appendChild(pre)
     $chatList.appendChild(li);
     questionData = [];
     question = false;
@@ -221,14 +212,6 @@ $sendForm.addEventListener("submit", (e) => {
     sendReq(data);
   }
 })
-
-// Enter로 textarea 제출, shift + Enter로 줄바꿈
-// $chatInput.addEventListener("keydown", (e) => {
-//   if (e.keyCode === 13 && !e.shiftKey) {
-//     e.preventDefault();
-//     sendReq();
-//   }
-// });
 
 // 채팅창 외부 클릭했을 때 채팅창 닫기
 document.addEventListener('click', (e) => {

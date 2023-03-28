@@ -650,6 +650,13 @@ header .menu-nav.is-active {
   background-color: #fbe8a6;
 }
 
+.chat-list li pre.chat-pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow: auto;
+  padding: 0;
+}
+
 .editor .cont-chat .inp-chat {
   display: flex;
   justify-content: space-around;
