@@ -7,6 +7,10 @@ const $chatCloseBtn = document.querySelector(".chat-close");
 const $chatList = document.querySelector(".chat-list");
 const $chatInput = document.querySelector(".inp-chat textarea");
 const $sendForm = document.querySelector(".inp-chat");
+const $btnChatOpen = document.querySelector(".btn-chatOpen");
+const $question = document.querySelector(".user");
+const $answer = document.querySelector(".chat-bot");
+const $btnQue = document.querySelectorAll(".btn-que");
 
 // openAI API
 let url = `https://openai-api.jejucodingcamp.workers.dev/`;
@@ -15,61 +19,93 @@ let url = `https://openai-api.jejucodingcamp.workers.dev/`;
 let question = false;
 
 // 질문을 저장하는 객체
-let data = [
-  {
-    role: "system",
-    content: "You are a helpful assistant.",
-  },
-];
+let data = [];
 
 // 화면에 뿌려줄 데이터
 let questionData = [];
 
+// 첫 질문과 함께 보내줄 데이터
+let inAdvance = [];
+
+// 채팅 오픈시에 해당 문제 읽어오는 함수
+  $btnChatOpen.addEventListener("click", async (e) => {
+    e.preventDefault();
+    inAdvance = [];
+    data = [];
+    questionData = [];
+    printQuestion();
+    const result = await axios(`/src/pages/question${PAGE_NAME}.md`)
+      .then((res) => {
+        inAdvance.push(
+          {
+            role: "system",
+            content:
+              "assistant는 친절한 자바스크립트 알고리즘의 힌트를 주는 선생님이다.",
+          },
+          {
+            role: "user",
+            content: "다음은 풀고자 하는 자바스크립트 알고리즘 문제 입니다.",
+          },
+          {
+            role: "user",
+            content: res.data,
+          }
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+});
+
 // 스크롤 최하단 이동
-const scrollToBottom = () => {
-  // 너비가 1200px 이하이고 navBar가 열려있을 경우
-  if(window.innerWidth <= 1200 && $container.classList.contains('menu-on')) {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  }
-  // 너비가 1024px 이하일 경우
-  else if (window.innerWidth <= 1024) {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  }
-}
+// const scrollToBottom = () => {
+//   // 너비가 1200px 이하이고 navBar가 열려있을 경우
+//   if(window.innerWidth <= 1200 && $container.classList.contains('menu-on')) {
+//     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+//   }
+//   // 너비가 1024px 이하일 경우
+//   else if (window.innerWidth <= 1024) {
+//     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+//   }
+// }
 
 // 버튼 누르면 채팅창 활성화시키는 함수
-$chatBtn.addEventListener("click", () => {
+const handleOpenChat = () => {
   $chatRoom.classList.add('open');
   $chatInfo.classList.add("close");
   $chatBtn.classList.add("close");
   $adCarousel.classList.add("close");
   $chatContainer.classList.add("open");
   $chatContainer.classList.remove("close");
-  scrollToBottom()
+}
+
+$chatBtn.addEventListener("click", () => {
+  handleOpenChat()
 });
 
 // 채팅 창 닫기 버튼 이벤트
-$chatCloseBtn.addEventListener('click',()=>{
+const handleCloseChat = () => {
   $chatRoom.classList.remove('open');
   $chatInfo.classList.remove("close");
   $chatBtn.classList.remove("close");
   $adCarousel.classList.remove("close");
   $chatContainer.classList.remove("open");
   $chatContainer.classList.add("close");
+}
+
+$chatCloseBtn.addEventListener('click',()=>{
+  handleCloseChat()
 });
 
 // 마크다운으로 변경해주는 함수
 function convertMarkdown(message) {
-  const markdownText = message;
-
   const codeBlockRegex = /(```(\w+)[ \t]*\r?\n)([\s\S]*?)(\r?\n[ \t]*```)/g;
-  const wrappedCode = markdownText.replace(codeBlockRegex, (match, start, language, code, end) => {
+
+  const wrappedCode = message.replace(codeBlockRegex, (match, start, language, code, end) => {
     const escapedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const langClass = `language-${language}`;
-    return `<pre style="background: #F5F2F0;"><code class="${langClass}" >${escapedCode.trim()}</code></pre>`;
+    return `<pre class="codeblock" style="background: #F5F2F0;"><code class="${langClass}" >${escapedCode.trim()}</code></pre>`;
   });
-
-  Prism.highlightAll();
 
   return wrappedCode;
 }
@@ -108,13 +144,22 @@ const printQuestion = async() => {
     questionData = [];
     question = false;
   }
+
+  Prism.highlightAll()
 }
+
+// 채팅 UI 삭제해주는 함수
+$btnQue.forEach((element) => {
+  element.addEventListener("click", () => {
+    $chatList.replaceChildren();
+  });
+});
 
 // 화면에 답변 그려주는 함수
 const printAnswer = async (answer) => {
   let li = document.createElement("li");
   li.classList.add("chat-bot");
-  li.innerHTML = answer;
+  li.innerHTML = convertMarkdown(answer);
   $chatList.appendChild(li);
 };
 
@@ -129,17 +174,20 @@ const apiPost = async(config) => {
     let result = await axios(config)
         .then((res) => {
             const answer = res.data.choices[0].message.content;
-            // console.log(answer);
-            const markdownAnswer = convertMarkdown(answer);
+            // const markdownAnswer = convertMarkdown(answer);
+            const markdownAnswer = answer;
             printAnswer(markdownAnswer);
+            Prism.highlightAll()
+
         })
         .catch((err) => {
-            console.log(err)
+          alert("답변 로딩시간을 초과하였습니다. 새로운 질문을 입력해주세요😢");
+          console.log(err)
         })
 };
 
 // req 보내주는 함수
-const sendReq = () => {
+const sendReq = (test) => {
     $chatInput.value = null;
     sendQuestion(question);
     printQuestion();
@@ -153,7 +201,8 @@ const sendReq = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      data: JSON.stringify(data),
+      timeout: 90000, // 1분 30초로 설정
+      data: JSON.stringify(test),
     };
 
     apiPost(config);
@@ -162,9 +211,14 @@ const sendReq = () => {
 // submit
 $sendForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  // 공백시 요청 막음
-  if (question) {
-    sendReq();
+  // 첫질문시 inAdvance안에 있는 문제에 대한 정보를 함께 보내줌
+  if (question && data.length < 1) {
+    inAdvance.map((el) => {
+      data.push(el);
+    });
+    sendReq(data);
+  } else if (question && data.length >= 1) {
+    sendReq(data);
   }
 })
 
@@ -175,3 +229,12 @@ $sendForm.addEventListener("submit", (e) => {
 //     sendReq();
 //   }
 // });
+
+// 채팅창 외부 클릭했을 때 채팅창 닫기
+document.addEventListener('click', (e) => {
+  const $img = $chatBtn.childNodes[1]
+  const isBtn = e.target === $chatBtn || e.target === $img
+  if(!$chatContainer.contains(e.target) && !isBtn){
+    handleCloseChat()
+  }
+})
