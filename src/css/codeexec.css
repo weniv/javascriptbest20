@@ -1,146 +1,143 @@
 @charset "UTF-8";
-@import './reset.css';
-@import './style.css';
+@import "./reset.css";
+@import "./style.css";
 @import "./variable.css";
 
 /* layout */
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
 }
 
 header {
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
+	padding: 0 2rem;
+	display: flex;
+	align-items: center;
 }
 
 .btn-exec {
-  height: fit-content;
-  margin: auto 0;
+	height: fit-content;
+	margin: auto 0;
 }
 
-@media (max-width:390px) {
+@media (max-width: 390px) {
+	header img {
+		width: 80%;
+	}
 
-  header img {
-    width: 80%;
-  }
-
-  .btn-exec {
-    margin: auto 20px;
-  }
+	.btn-exec {
+		margin: auto 20px;
+	}
 }
 
-@media (min-width:2000px) {
-  body {
-    align-items: center;
-  }
+@media (min-width: 2000px) {
+	body {
+		align-items: center;
+	}
 
-  main,
-  py-terminal {
-    width: 65%;
-  }
+	main,
+	py-terminal {
+		width: 65%;
+	}
 
-  header {
-    padding: 0 17%;
-  }
+	header {
+		padding: 0 17%;
+	}
 
-  footer {
-    width: 100%;
-  }
+	footer {
+		width: 100%;
+	}
 }
 
 main .info {
-  background: rgba(0, 0, 0, 0.2);
-  width: fit-content;
-  padding: 0.4rem 1rem;
-  border-radius: 10px;
+	background: rgba(0, 0, 0, 0.2);
+	width: fit-content;
+	padding: 0.4rem 1rem;
+	border-radius: 10px;
 }
 
 footer {
-  box-sizing: border-box;
-  order: 3;
+	box-sizing: border-box;
+	order: 3;
 }
 
 .edit button {
-  display:block;
-  margin:0.6rem 0;
-  margin-left:auto;
-  padding: 0.5em 1em;
-  background: var(--ColorWhite);
-  background: var(--ColorMain);
-  color: var(--ColorDeep);
-  font-weight: bold;
-  border-radius: 3px;
+	display: block;
+	margin: 0.6rem 0;
+	margin-left: auto;
+	padding: 0.5em 1em;
+	background: var(--ColorWhite);
+	background: var(--ColorMain);
+	color: var(--ColorDeep);
+	font-weight: bold;
+	border-radius: 3px;
 }
 
 .edit #btn-run {
-  padding: 0.8rem 1.3rem;
-  background: var(--ColorMain);
-  color: var(--ColorDeep);
-  font-weight: bold;
-  border-radius: 3px;
+	padding: 0.8rem 1.3rem;
+	background: var(--ColorMain);
+	color: var(--ColorDeep);
+	font-weight: bold;
+	border-radius: 3px;
 }
 
 .info {
-  margin-bottom: 2rem;
+	margin-bottom: 2rem;
 }
 
 .cm-editor {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cm-editor.cm-focused {
-  border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
 main {
-  padding: 2rem;
-  margin: 60px 0 auto;
-  height:100%;
+	padding: 3rem;
+	margin: 60px 0 auto;
+	height: 100%;
 }
 
 main .info {
-  position:absolute;
+	position: absolute;
 }
 
 main .edit {
-  padding-top:42px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	padding-top: 42px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 main .exec {
-  overflow: scroll;
-  height:Calc(50vh - 14rem);
-  background-color: rgba(0,0,0,0.2);
-  padding:2rem;
-
+	overflow: auto;
+	height: Calc(50vh - 20rem);
+	background-color: rgba(0, 0, 0, 0.2);
+	padding: 2rem;
+	margin-top: 3rem;
 }
 .exec #result .cmd-msg {
-  display:block;
-  padding: 0.5rem;
+	display: block;
+	padding: 0.5rem;
 }
 .exec #result .cmd-msg::before {
-  content:'> ';
-  position: relative;
-  padding-right:1rem;
-  color:rgba(255, 255, 255, 0.3)
+	content: "> ";
+	position: relative;
+	padding-right: 1rem;
+	color: rgba(255, 255, 255, 0.3);
 }
 
 .exec #result .error-msg {
-  color:var(--ColorNegative);
+	color: var(--ColorNegative);
 }
 
 .CodeMirror {
-  border: 1px solid #eee;
-  height: Calc(50vh - 14rem);
+	border: 1px solid #eee;
+	height: Calc(50vh - 14rem);
 }
 .CodeMirror-scroll {
-  overflow-y: hidden;
-  overflow-x: auto;
+	overflow-y: hidden;
+	overflow-x: auto;
 }
-
