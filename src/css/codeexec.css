@@ -22,6 +22,18 @@ header {
 	margin: auto 0;
 }
 
+.btn-download {
+	height: fit-content;
+	margin: auto 0;
+	margin-right: 10px;
+	padding: 0.8rem 1.3rem;
+	background: var(--ColorMain);
+	color: var(--ColorDeep);
+	font-weight: bold;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
 @media (max-width: 390px) {
 	header img {
 		width: 80%;
@@ -29,6 +41,16 @@ header {
 
 	.btn-exec {
 		margin: auto 20px;
+	}
+
+	.btn-download {
+		display: none;
+	}
+}
+
+@media (max-width: 690px) {
+	.btn-download {
+		display: none;
 	}
 }
 
@@ -111,6 +133,7 @@ main .edit {
 	flex-direction: column;
 	justify-content: space-between;
 }
+
 main .exec {
 	overflow: auto;
 	height: Calc(50vh - 20rem);
@@ -118,10 +141,12 @@ main .exec {
 	padding: 2rem;
 	margin-top: 3rem;
 }
+
 .exec #result .cmd-msg {
 	display: block;
 	padding: 0.5rem;
 }
+
 .exec #result .cmd-msg::before {
 	content: "> ";
 	position: relative;
@@ -137,6 +162,7 @@ main .exec {
 	border: 1px solid #eee;
 	height: Calc(50vh - 14rem);
 }
+
 .CodeMirror-scroll {
 	overflow-y: hidden;
 	overflow-x: auto;
