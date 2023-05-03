@@ -2,7 +2,6 @@ const $chatContainer = document.querySelector(".cont-chat");
 const $chatRoom = document.querySelector(".chatroom");
 const $chatInfo = document.querySelector(".chat-info");
 const $chatBtn = document.querySelector(".btn-chatOpen");
-const $adCarousel = document.querySelector("#kg-carousel");
 const $chatCloseBtn = document.querySelector(".chat-close");
 const $chatList = document.querySelector(".chat-list");
 const $chatInput = document.querySelector(".inp-chat textarea");
@@ -40,11 +39,11 @@ let inAdvance = [];
           {
             role: "system",
             content:
-              "assistant는 친절한 자바스크립트 알고리즘의 힌트를 주는 선생님이다.",
+              "Assistant is a teacher who gives hints for JavaScript algorithm questions.",
           },
           {
             role: "user",
-            content: "다음은 풀고자 하는 자바스크립트 알고리즘 문제 입니다.",
+            content: "Here are the JavaScript algorithm problems I want you to solve.",
           },
           {
             role: "user",
@@ -62,7 +61,6 @@ const handleOpenChat = () => {
   $chatRoom.classList.add('open');
   $chatInfo.classList.add("close");
   $chatBtn.classList.add("close");
-  $adCarousel.classList.add("close");
   $chatContainer.classList.add("open");
   $chatContainer.classList.remove("close");
 }
@@ -76,7 +74,6 @@ const handleCloseChat = () => {
   $chatRoom.classList.remove('open');
   $chatInfo.classList.remove("close");
   $chatBtn.classList.remove("close");
-  $adCarousel.classList.remove("close");
   $chatContainer.classList.remove("open");
   $chatContainer.classList.add("close");
 }
@@ -172,7 +169,7 @@ const apiPost = async(config) => {
 
         })
         .catch((err) => {
-          alert("답변 로딩시간을 초과하였습니다. 새로운 질문을 입력해주세요😢");
+          alert("Loading time has exceeded. Please enter a new question 😢");
           console.log(err)
         })
 };
