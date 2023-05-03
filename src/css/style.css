@@ -790,6 +790,10 @@ header .menu-nav.is-active {
 	font-weight: normal;
 }
 
+.description .que-list .que-list{
+	text-transform: none;
+}
+
 .description > ul.que-list > li,
 .description > ul.que-list ul {
 	display: flex;
