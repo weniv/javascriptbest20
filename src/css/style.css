@@ -288,6 +288,7 @@ header .menu-nav {
     padding-right: 40px;
     position: relative;
     background: #fff url(../img/select.svg) no-repeat calc(100% - 0.5em) 50% / 0.8em;
+    margin-left: 0;
 }
 
 .btn-algoview {
@@ -298,7 +299,7 @@ header .menu-nav {
     content: '💡 Algoview는 알고리즘 문제 분석 오픈소스 프로젝트입니다.';
     display: block;
     position: absolute;
-    top: 110%;
+    top: 120%;
     left: 0;
     width: 300px;
     font-size: 12px;
