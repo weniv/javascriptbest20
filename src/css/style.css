@@ -254,7 +254,7 @@ header .menu-nav {
     margin: 0 auto;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 900px) {
     .hamburger-btn {
         display: inline-block;
     }
@@ -267,15 +267,15 @@ header .menu-nav {
     border-radius: 3px;
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 
 .btn-download {
-    margin-right: 10px;
     display: inline-block;
     line-height: 1.4;
 }
 
-@media (max-width: 820px) {
+@media (max-width: 900px) {
     .cta-btn {
         display: none;
     }
@@ -283,7 +283,6 @@ header .menu-nav {
 
 .lang-selector {
     background-color: var(--ColorWhite);
-    margin-right: 10px;
     cursor: pointer;
     appearance: none;
     padding-right: 40px;
@@ -341,14 +340,19 @@ header .menu-nav.is-active {
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 3px;
+    margin: 0;
 }
 
 .menu-list .menu-item:hover {
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-.menu-list .menu-item:nth-child(2) {
-    margin: 8px 0;
+.menu-list .menu-item {
+    margin-bottom: 8px;
+}
+
+.menu-list .menu-item:last-child {
+    margin-bottom: 0;
 }
 
 .menu-list .menu-item a,
@@ -1201,7 +1205,7 @@ footer p {
     }
 }
 
-@media (min-width: 820px) {
+@media (min-width: 900px) {
     .menu-nav,
     .menu-list {
         display: none;
