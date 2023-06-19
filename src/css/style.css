@@ -290,6 +290,24 @@ header .menu-nav {
     background: #fff url(../img/select.svg) no-repeat calc(100% - 0.5em) 50% / 0.8em;
 }
 
+.btn-algoview {
+    position: relative;
+}
+
+.btn-algoview:hover::after {
+    content: '💡 Algoview는 알고리즘 문제 분석 오픈소스 프로젝트입니다.';
+    display: block;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 300px;
+    font-size: 12px;
+    background-color: var(--ColorWhite);
+    border-radius: 3px;
+    padding: 3px;
+    pointer-events: none;
+}
+
 .menu-nav.is-active .btn-exec {
     background: none;
 }
@@ -1190,7 +1208,7 @@ footer p {
         top: 6rem;
         left: 0;
         width: 100%;
-        z-index: 100;
+        /* z-index: 100; */
         max-height: 40rem;
         overflow-y: scroll;
         background: var(--ColorBg);
