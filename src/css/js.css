@@ -1,57 +1,40 @@
 /* 개별 */
 nav ol li a.active {
-	color: var(--ColorMain);
+  color: var(--ColorMain);
 }
 .cta-btn {
-	color: var(--ColorDeep);
+  color: var(--ColorDeep);
 }
 .chatroom .chat-list li.chat-bot {
-	background-color: #fbe8a6;
+  background-color: #fbe8a6;
 }
 .cont-chat .inp-chat button {
-	color: var(--ColorDeep);
+  color: var(--ColorDeep);
 }
 .description a {
-	color: var(--ColorMain);
+  color: var(--ColorMain);
 }
 .editor .btn-contain #btn-run {
-	color: var(--ColorDeep);
+  color: var(--ColorDeep);
 }
 
-#kg-carousel #kg-nav #nav-auto div {
-	border: 1.5px solid var(--ColorDeep);
-}
-
-#kg-carousel #radio1:checked ~ #kg-nav #nav-auto .auto-btn1,
-#kg-carousel #radio2:checked ~ #kg-nav #nav-auto .auto-btn2,
-#kg-carousel #radio3:checked ~ #kg-nav #nav-auto .auto-btn3,
-#kg-carousel #radio4:checked ~ #kg-nav #nav-auto .auto-btn4,
-#kg-carousel #radio5:checked ~ #kg-nav #nav-auto .auto-btn5,
-#kg-carousel #radio6:checked ~ #kg-nav #nav-auto .auto-btn6,
-/* #kg-carousel #radio7:checked ~ #kg-nav #nav-auto .auto-btn7, */
-#kg-carousel #kg-nav #nav-maunal .manual-btn:hover {
-	background-color: var(--ColorDeep);
-}
-#kg-carousel #kg-nav #nav-maunal > .manual-btn {
-	border: 1.5px solid var(--ColorDeep);
-}
 .menu-list .menu-item a,
 .menu-list .menu-item button {
-	color: var(--ColorMain);
+  color: var(--ColorMain);
 }
 /* class */
 .question {
-	color: black;
-	font-size: 12px;
+  color: black;
+  font-size: 12px;
 }
 
 .btn-exec {
-	padding: 0.8rem 1.3rem;
-	background: var(--ColorMain);
-	color: var(--ColorDeep);
-	font-weight: bold;
-	border-radius: 3px;
+  padding: 0.8rem 1.3rem;
+  background: var(--ColorMain);
+  color: var(--ColorDeep);
+  font-weight: bold;
+  border-radius: 3px;
 }
 #kg-carousel #kg-next {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
 }
