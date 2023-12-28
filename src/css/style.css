@@ -237,13 +237,29 @@ nav ol li a:not(.active):hover {
   transform: rotate(0deg);
 }
 
-header .menu-nav {
-  display: none;
-  overflow-y: hidden;
+header .menu-list {
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  width: 240px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 6px;
+  padding: 8px 0;
+}
+.menu-list hr {
+  border-bottom: 1px solid var(--ColorBg);
+  margin:8px 0;
+}
+
+.menu-list .menu-title {
+  font-size:1.2rem;
+  color: #ffffd9;
+  padding: 4px 0 4px 16px;
+  margin-bottom:4px;
 }
 
 .hamburger-btn {
-  display: none;
   width: 40px;
   height: 40px;
 }
@@ -273,6 +289,21 @@ header .menu-nav {
 .btn-download {
   display: inline-block;
   line-height: 1.4;
+}
+.btn-download::before {
+content:'';
+width:2rem;
+height:2rem;
+margin-right:0.8rem;
+background:url('../img/icon/icon-download.svg') no-repeat 50% 50%/contain;
+}
+
+.menu-item .btn-exec::before {
+content:'';
+width:2rem;
+height:2rem;
+margin-right:0.8rem;
+background:url('../img/icon/icon-link.svg') no-repeat 50% 50%/contain;
 }
 
 @media (max-width: 900px) {
@@ -310,9 +341,6 @@ header .menu-nav {
   pointer-events: none;
 }
 
-.menu-nav.is-active .btn-exec {
-  background: none;
-}
 
 @media (max-width: 446px) {
   .btn-exec {
@@ -343,33 +371,38 @@ header .menu-nav {
   }
 }
 
-header .menu-nav {
-  display: none;
-}
-
 header .menu-nav.is-active {
   display: block;
 }
 
 .menu-list {
+  display: none;
+  background: var(--ColorDeep);
   padding: 8px;
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.04);
+}
+
+.menu-list.active {
+  display: block;
 }
 
 .menu-list .menu-item {
-  width: 100%;
+  /* width: 100%; */
+  font-size: 1.4rem;
+  line-height:2rem;
   overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); */
   border-radius: 3px;
-  margin: 0;
+  padding: 10px 20px;
 }
 
 .menu-list .menu-item:hover {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.menu-list .menu-item {
+/* .menu-list .menu-item {
   margin-bottom: 8px;
-}
+} */
 
 .menu-list .menu-item:last-child {
   margin-bottom: 0;
@@ -377,12 +410,10 @@ header .menu-nav.is-active {
 
 .menu-list .menu-item a,
 .menu-list .menu-item button {
-  display: inline-block;
+  display: flex;
   width: 100%;
-  margin: 5px 10px;
-  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  padding: 1rem;
 }
 
 .menu-list .menu-item a {
@@ -467,7 +498,6 @@ header .menu-nav.is-active {
   }
 
   nav {
-    margin-top: 6rem;
     position: sticky;
     top: 6rem;
     left: 0;
@@ -1065,13 +1095,6 @@ footer p {
   }
 }
 
-@media (min-width: 900px) {
-  .menu-nav,
-  .menu-list {
-    display: none;
-  }
-}
-
 .result-pass {
   color: var(--ColorMain);
 }
@@ -1153,7 +1176,7 @@ footer p {
   & a {
     width: 100%;
     height: 100%;
-  }
+}
 
   & img {
     width: 100%;
